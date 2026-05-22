@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository contains **193 Python** 🐍 and **178 Java** ☕ solutions to LeetCode problems, with a focus on the **NeetCode 150** 🌊 - a curated list of essential coding interview questions! 💻
+This repository contains **193 Python** 🐍 and **168 Java** ☕ solutions to LeetCode problems, with a focus on the **NeetCode 150** 🌊 - a curated list of essential coding interview questions! 💻
 
 ### Legend
 | Symbol | Meaning |
@@ -17,7 +17,7 @@ This repository contains **193 Python** 🐍 and **178 Java** ☕ solutions to L
 | Category | Count |
 |----------|-------|
 | Python Solutions 🐍 | 193 |
-| Java Solutions ☕ | 178 |
+| Java Solutions ☕ | 168 |
 | NeetCode 150 🌊 | 150 |
 | Visualizations 📊 | 193 |
 
@@ -79,12 +79,12 @@ This repository contains **193 Python** 🐍 and **178 Java** ☕ solutions to L
 | 20 | [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) | ✅ | ✅ | ✅ | [Visual](visual/0020_valid_parentheses.html) |
 | 22 | [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) | ✅ | ✅ | ✅ | [Visual](visual/0022_generate_parentheses.html) |
 | 32 | [Longest Valid Parentheses](https://leetcode.com/problems/longest-valid-parentheses/) | ✅ | ✅ | ❌ | [Visual](visual/0032_longest_valid_parentheses.html) |
-| 84 | [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) | ✅ | ✅ | ✅ | [Visual](visual/0084_largest_rectangle_in_histogram.html) |
+| 84 | [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) | ✅ | ❌ | ✅ | [Visual](visual/0084_largest_rectangle_in_histogram.html) |
 | 150 | [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/) | ✅ | ✅ | ✅ | [Visual](visual/0150_evaluate_reverse_polish_notation.html) |
 | 155 | [Min Stack](https://leetcode.com/problems/min-stack/) | ✅ | ✅ | ✅ | [Visual](visual/0155_min_stack.html) |
 | 716 | [Max Stack](https://leetcode.com/problems/max-stack/) | ✅ | ✅ | ❌ | [Visual](visual/0716_max_stack.html) |
 | 739 | [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/) | ✅ | ✅ | ✅ | [Visual](visual/0739_daily_temperatures.html) |
-| 853 | [Car Fleet](https://leetcode.com/problems/car-fleet/) | ✅ | ✅ | ✅ | [Visual](visual/0853_car_fleet.html) |
+| 853 | [Car Fleet](https://leetcode.com/problems/car-fleet/) | ✅ | ❌ | ✅ | [Visual](visual/0853_car_fleet.html) |
 | 1249 | [Minimum Remove to Make Valid Parentheses](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/) | ✅ | ✅ | ✅ | [Visual](visual/1249_min_remove_parentheses.html) |
 
 ### Binary Search 🔍
@@ -132,7 +132,7 @@ This repository contains **193 Python** 🐍 and **178 Java** ☕ solutions to L
 | 103 | [Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/) | ✅ | ✅ | ❌ | [Visual](visual/0103_binary_tree_zigzag_level_order.html) |
 | 104 | [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) | ✅ | ✅ | ✅ | [Visual](visual/0104_max_depth_binary_tree.html) |
 | 105 | [Construct Binary Tree from Preorder and Inorder](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | ✅ | ❌ | ✅ | [Visual](visual/0105_construct_binary_tree_from_preorder_and_inorder.html) |
-| 108 | [Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/) | ✅ | ❌ | ❌ | [Visual](visual/0108_convert_sorted_array_to_binary_search_tree.html) |
+| 108 | [Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/) | ✅ | ❌ | ❌ | [Visual](visual/0108_convert_sorted_array_to_bst.html) |
 | 110 | [Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/) | ✅ | ✅ | ✅ | [Visual](visual/0110_balanced_binary_tree.html) |
 | 111 | [Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/) | ✅ | ❌ | ❌ | [Visual](visual/0111_minimum_depth_of_binary_tree.html) |
 | 112 | [Path Sum](https://leetcode.com/problems/path-sum/) | ✅ | ❌ | ❌ | [Visual](visual/0112_path_sum.html) |
@@ -144,7 +144,7 @@ This repository contains **193 Python** 🐍 and **178 Java** ☕ solutions to L
 | 211 | [Design Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/) | ✅ | ✅ | ✅ | [Visual](visual/0211_design_add_and_search_words.html) |
 | 212 | [Word Search II](https://leetcode.com/problems/word-search-ii/) | ✅ | ✅ | ✅ | [Visual](visual/0212_word_search_ii.html) |
 | 226 | [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/) | ✅ | ✅ | ✅ | [Visual](visual/0226_invert_binary_tree.html) |
-| 230 | [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) | ✅ | ✅ | ✅ | [Visual](visual/0230_kth_smallest_element_in_bst.html) |
+| 230 | [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) | ✅ | ❌ | ✅ | [Visual](visual/0230_kth_smallest_element_in_bst.html) |
 | 235 | [Lowest Common Ancestor of a BST](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) | ✅ | ✅ | ✅ | [Visual](visual/0235_lowest_common_ancestor_of_bst.html) |
 | 297 | [Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) | ✅ | ✅ | ✅ | [Visual](visual/0297_serialize_and_deserialize_binary_tree.html) |
 | 366 | [Find Leaves of Binary Tree](https://leetcode.com/problems/find-leaves-of-binary-tree/) | ✅ | ✅ | ❌ | [Visual](visual/0366_find_leaves_of_binary_tree.html) |
@@ -160,7 +160,7 @@ This repository contains **193 Python** 🐍 and **178 Java** ☕ solutions to L
 | 295 | [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) | ✅ | ✅ | ✅ | [Visual](visual/0295_find_median_data_stream.html) |
 | 355 | [Design Twitter](https://leetcode.com/problems/design-twitter/) | ✅ | ✅ | ✅ | [Visual](visual/0355_design_twitter.html) |
 | 621 | [Task Scheduler](https://leetcode.com/problems/task-scheduler/) | ✅ | ✅ | ✅ | [Visual](visual/0621_task_scheduler.html) |
-| 703 | [Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/) | ✅ | ✅ | ✅ | [Visual](visual/0703_kth_largest_element_in_stream.html) |
+| 703 | [Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/) | ✅ | ✅ | ✅ | [Visual](visual/0703_kth_largest_element_in_a_stream.html) |
 | 973 | [K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/) | ✅ | ✅ | ✅ | [Visual](visual/0973_k_closest_points.html) |
 | 1046 | [Last Stone Weight](https://leetcode.com/problems/last-stone-weight/) | ✅ | ✅ | ✅ | [Visual](visual/1046_last_stone_weight.html) |
 | 1851 | [Minimum Interval to Include Each Query](https://leetcode.com/problems/minimum-interval-to-include-each-query/) | ✅ | ✅ | ✅ | [Visual](visual/1851_minimum_interval_to_include_each_query.html) |
@@ -187,7 +187,7 @@ This repository contains **193 Python** 🐍 and **178 Java** ☕ solutions to L
 | 684 | [Redundant Connection](https://leetcode.com/problems/redundant-connection/) | ✅ | ✅ | ✅ | [Visual](visual/0684_redundant_connection.html) |
 | 695 | [Max Area of Island](https://leetcode.com/problems/max-area-of-island/) | ✅ | ✅ | ✅ | [Visual](visual/0695_max_area_of_island.html) |
 | 743 | [Network Delay Time](https://leetcode.com/problems/network-delay-time/) | ✅ | ✅ | ✅ | [Visual](visual/0743_network_delay_time.html) |
-| 778 | [Swim in Rising Water](https://leetcode.com/problems/swim-in-rising-water/) | ✅ | ✅ | ✅ | [Visual](visual/0778_swim_in_rising_water.html) |
+| 778 | [Swim in Rising Water](https://leetcode.com/problems/swim-in-rising-water/) | ✅ | ❌ | ✅ | [Visual](visual/0778_swim_in_rising_water.html) |
 | 787 | [Cheapest Flights Within K Stops](https://leetcode.com/problems/cheapest-flights-within-k-stops/) | ✅ | ✅ | ✅ | [Visual](visual/0787_cheapest_flights_within_k_stops.html) |
 | 994 | [Rotting Oranges](https://leetcode.com/problems/rotting-oranges/) | ✅ | ✅ | ✅ | [Visual](visual/0994_rotting_oranges.html) |
 | 1584 | [Min Cost to Connect All Points](https://leetcode.com/problems/min-cost-to-connect-all-points/) | ✅ | ✅ | ✅ | [Visual](visual/1584_min_cost_connect_points.html) |
@@ -203,9 +203,9 @@ This repository contains **193 Python** 🐍 and **178 Java** ☕ solutions to L
 | 55 | [Jump Game](https://leetcode.com/problems/jump-game/) | ✅ | ✅ | ✅ | [Visual](visual/0055_jump_game.html) |
 | 62 | [Unique Paths](https://leetcode.com/problems/unique-paths/) | ✅ | ✅ | ✅ | [Visual](visual/0062_unique_paths.html) |
 | 70 | [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) | ✅ | ✅ | ✅ | [Visual](visual/0070_climbing_stairs.html) |
-| 72 | [Edit Distance](https://leetcode.com/problems/edit-distance/) | ✅ | ✅ | ✅ | [Visual](visual/0072_edit_distance.html) |
-| 91 | [Decode Ways](https://leetcode.com/problems/decode-ways/) | ✅ | ✅ | ✅ | [Visual](visual/0091_decode_ways.html) |
-| 97 | [Interleaving String](https://leetcode.com/problems/interleaving-string/) | ✅ | ✅ | ✅ | [Visual](visual/0097_interleaving_string.html) |
+| 72 | [Edit Distance](https://leetcode.com/problems/edit-distance/) | ✅ | ❌ | ✅ | [Visual](visual/0072_edit_distance.html) |
+| 91 | [Decode Ways](https://leetcode.com/problems/decode-ways/) | ✅ | ❌ | ✅ | [Visual](visual/0091_decode_ways.html) |
+| 97 | [Interleaving String](https://leetcode.com/problems/interleaving-string/) | ✅ | ❌ | ✅ | [Visual](visual/0097_interleaving_string.html) |
 | 115 | [Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/) | ✅ | ✅ | ✅ | [Visual](visual/0115_distinct_subsequences.html) |
 | 139 | [Word Break](https://leetcode.com/problems/word-break/) | ✅ | ✅ | ✅ | [Visual](visual/0139_word_break.html) |
 | 152 | [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) | ✅ | ✅ | ✅ | [Visual](visual/0152_maximum_product_subarray.html) |
@@ -218,9 +218,9 @@ This repository contains **193 Python** 🐍 and **178 Java** ☕ solutions to L
 | 416 | [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/) | ✅ | ✅ | ✅ | [Visual](visual/0416_partition_equal_subset_sum.html) |
 | 494 | [Target Sum](https://leetcode.com/problems/target-sum/) | ✅ | ✅ | ✅ | [Visual](visual/0494_target_sum.html) |
 | 518 | [Coin Change II](https://leetcode.com/problems/coin-change-ii/) | ✅ | ✅ | ✅ | [Visual](visual/0518_coin_change_ii.html) |
-| 647 | [Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/) | ✅ | ✅ | ✅ | [Visual](visual/0647_palindromic_substrings.html) |
+| 647 | [Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/) | ✅ | ❌ | ✅ | [Visual](visual/0647_palindromic_substrings.html) |
 | 746 | [Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs/) | ✅ | ✅ | ✅ | [Visual](visual/0746_min_cost_climbing_stairs.html) |
-| 818 | [Race Car](https://leetcode.com/problems/race-car/) | ✅ | ✅ | ❌ | [Visual](visual/0818_race_car.html) |
+| 818 | [Race Car](https://leetcode.com/problems/race-car/) | ✅ | ❌ | ❌ | [Visual](visual/0818_race_car.html) |
 | 1143 | [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/) | ✅ | ✅ | ✅ | [Visual](visual/1143_longest_common_subsequence.html) |
 
 ### Greedy 🤑
@@ -230,7 +230,7 @@ This repository contains **193 Python** 🐍 and **178 Java** ☕ solutions to L
 | 134 | [Gas Station](https://leetcode.com/problems/gas-station/) | ✅ | ✅ | ✅ | [Visual](visual/0134_gas_station.html) |
 | 179 | [Largest Number](https://leetcode.com/problems/largest-number/) | ✅ | ✅ | ❌ | [Visual](visual/0179_largest_number.html) |
 | 678 | [Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/) | ✅ | ✅ | ✅ | [Visual](visual/0678_valid_parenthesis_string.html) |
-| 763 | [Partition Labels](https://leetcode.com/problems/partition-labels/) | ✅ | ✅ | ✅ | [Visual](visual/0763_partition_labels.html) |
+| 763 | [Partition Labels](https://leetcode.com/problems/partition-labels/) | ✅ | ❌ | ✅ | [Visual](visual/0763_partition_labels.html) |
 | 846 | [Hand of Straights](https://leetcode.com/problems/hand-of-straights/) | ✅ | ✅ | ✅ | [Visual](visual/0846_hand_of_straights.html) |
 | 1899 | [Merge Triplets to Form Target Triplet](https://leetcode.com/problems/merge-triplets-to-form-target-triplet/) | ✅ | ✅ | ✅ | [Visual](visual/1899_merge_triplets_to_form_target_triplet.html) |
 
@@ -244,7 +244,7 @@ This repository contains **193 Python** 🐍 and **178 Java** ☕ solutions to L
 | 46 | [Permutations](https://leetcode.com/problems/permutations/) | ✅ | ✅ | ✅ | [Visual](visual/0046_permutations.html) |
 | 51 | [N-Queens](https://leetcode.com/problems/n-queens/) | ✅ | ✅ | ✅ | [Visual](visual/0051_n_queens.html) |
 | 78 | [Subsets](https://leetcode.com/problems/subsets/) | ✅ | ✅ | ✅ | [Visual](visual/0078_subsets.html) |
-| 79 | [Word Search](https://leetcode.com/problems/word-search/) | ✅ | ✅ | ✅ | [Visual](visual/0079_word_search.html) |
+| 79 | [Word Search](https://leetcode.com/problems/word-search/) | ✅ | ❌ | ✅ | [Visual](visual/0079_word_search.html) |
 | 90 | [Subsets II](https://leetcode.com/problems/subsets-ii/) | ✅ | ✅ | ✅ | [Visual](visual/0090_subsets_ii.html) |
 | 131 | [Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/) | ✅ | ✅ | ✅ | [Visual](visual/0131_palindrome_partitioning.html) |
 
@@ -258,7 +258,7 @@ This repository contains **193 Python** 🐍 and **178 Java** ☕ solutions to L
 | 50 | [Pow(x, n)](https://leetcode.com/problems/powx-n/) | ✅ | ✅ | ✅ | [Visual](visual/0050_pow_x_n.html) |
 | 54 | [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) | ✅ | ✅ | ✅ | [Visual](visual/0054_spiral_matrix.html) |
 | 66 | [Plus One](https://leetcode.com/problems/plus-one/) | ✅ | ✅ | ✅ | [Visual](visual/0066_plus_one.html) |
-| 73 | [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/) | ✅ | ✅ | ✅ | [Visual](visual/0073_set_matrix_zeroes.html) |
+| 73 | [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/) | ✅ | ❌ | ✅ | [Visual](visual/0073_set_matrix_zeroes.html) |
 | 136 | [Single Number](https://leetcode.com/problems/single-number/) | ✅ | ✅ | ✅ | [Visual](visual/0136_single_number.html) |
 | 190 | [Reverse Bits](https://leetcode.com/problems/reverse-bits/) | ✅ | ✅ | ✅ | [Visual](visual/0190_reverse_bits.html) |
 | 191 | [Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/) | ✅ | ✅ | ✅ | [Visual](visual/0191_number_of_1_bits.html) |

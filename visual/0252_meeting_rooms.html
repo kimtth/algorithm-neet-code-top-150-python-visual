@@ -70,23 +70,71 @@
         <div class="code-section">
             <h3>💻 Python Solution</h3>
             <div class="code-block">
-                <pre><span class="keyword">def</span> <span class="function">canAttendMeetings</span>(intervals):
-    <span class="string">"""
-    Sort by start time, check adjacent meetings.
-    Time: O(n log n), Space: O(1)
-    """</span>
-    <span class="keyword">if</span> <span class="keyword">not</span> intervals:
-        <span class="keyword">return</span> <span class="keyword">True</span>
+                <pre>from typing import List
+
+
+"""
+LeetCode 252: Meeting Rooms
+
+Problem description (premium problem):
+
+Given an array of meeting time intervals where intervals[i] = [starti, endi], 
+determine if a person could attend all meetings.
+
+Example 1:
+Input: intervals = [[0,30],[5,10],[15,20]]
+Output: false
+Explanation: The person cannot attend all meetings because there is an overlap between [0,30] and [5,10].
+
+Example 2:
+Input: intervals = [[7,10],[2,4]]
+Output: true
+Explanation: The person can attend all meetings because they do not overlap.
+
+Constraints:
+- 0 &lt;= intervals.length &lt;= 10^4
+- intervals[i].length == 2
+- 0 &lt;= starti &lt; endi &lt;= 10^6
+"""
+
+class Solution:
+
+    def can_attend_meetings(self, intervals: List[List[int]]) -&gt;bool:
+        """
+        Determine if a person could attend all meetings.
+        
+        Args:
+            intervals: List of meeting intervals where intervals[i] = [start_i, end_i]
+            
+        Returns:
+            bool: True if the person can attend all meetings without overlap, False otherwise
+        """
+        intervals.sort(key=lambda x: x[0])
+        for i in range(len(intervals) - 1):
+            if intervals[i][1] &gt; intervals[i + 1][0]:
+                return False
+        return True
+
+
+if __name__ == '__main__':
+    # Example usage based on LeetCode sample
+    solution = Solution()
     
-    <span class="comment"># Sort by start time</span>
-    intervals.<span class="function">sort</span>(key=<span class="keyword">lambda</span> x: <span class="class-name">x</span>[<span class="number">0</span>])
+    # Example 1
+    intervals = [[0, 30], [5, 10], [15, 20]]
+    result = solution.can_attend_meetings(intervals)
+    print(f"Can attend all meetings in {intervals}: {result}")  # Output: False
     
-    <span class="comment"># Check for overlaps</span>
-    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="function">range</span>(<span class="number">1</span>, <span class="function">len</span>(intervals)):
-        <span class="keyword">if</span> intervals[i][<span class="number">0</span>] < intervals[i-<span class="number">1</span>][<span class="number">1</span>]:
-            <span class="keyword">return</span> <span class="keyword">False</span>  <span class="comment"># Overlap found!</span>
+    # Example 2
+    intervals = [[7, 10], [2, 4]]
+    result = solution.can_attend_meetings(intervals)
+    print(f"Can attend all meetings in {intervals}: {result}")  # Output: True
     
-    <span class="keyword">return</span> <span class="keyword">True</span></pre>
+    # Additional example
+    intervals = [[1, 3], [3, 6], [6, 8]]
+    result = solution.can_attend_meetings(intervals)
+    print(f"Can attend all meetings in {intervals}: {result}")  # Output: True
+</pre>
             </div>
         </div>
     </div>

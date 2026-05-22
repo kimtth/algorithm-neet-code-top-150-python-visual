@@ -84,33 +84,145 @@
         <div class="code-section">
             <h3>💻 Python Solution (BFS)</h3>
             <div class="code-block">
-                <pre><span class="keyword">from</span> collections <span class="keyword">import</span> deque
+                <pre>import sys
+from collections import deque
 
-<span class="keyword">def</span> <span class="function">racecar</span>(target):
-    <span class="comment"># BFS: (position, speed)</span>
-    queue = deque([(0, 1, <span class="string">""</span>)])  <span class="comment"># (pos, speed, path)</span>
-    visited = {(0, 1)}
+
+"""
+LeetCode Race Car
+
+Problem from LeetCode: https://leetcode.com/problems/race-car/
+
+Description:
+Your car starts at position 0 and speed +1 on an infinite number line. Your car can go into negative positions. Your car drives automatically according to a sequence of instructions 'A' (accelerate) and 'R' (reverse):
+
+When you get an instruction 'A', your car does the following:
+- position += speed
+- speed *= 2
+
+When you get an instruction 'R', your car does the following:
+- If your speed is positive then speed = -1
+- Otherwise speed = 1
+Your position stays the same.
+
+For example, after commands "AAR", your car goes to positions 0 --&gt; 1 --&gt; 3 --&gt; 3, and your speed goes to 1 --&gt; 2 --&gt; 4 --&gt; -1.
+
+Given a target position target, return the length of the shortest sequence of instructions to get there.
+
+Example 1:
+Input: target = 3
+Output: 2
+Explanation: 
+The shortest instruction sequence is "AA".
+Your position goes from 0 --&gt; 1 --&gt; 3.
+
+Example 2:
+Input: target = 6
+Output: 5
+Explanation: 
+The shortest instruction sequence is "AAARA".
+Your position goes from 0 --&gt; 1 --&gt; 3 --&gt; 7 --&gt; 7 --&gt; 6.
+
+Constraints:
+1 &lt;= target &lt;= 10^4
+"""
+
+class Solution:
+
+    def racecar(self, target: int) -&gt;int:
+        """
+        Find the minimum number of instructions needed to reach the target position.
+        
+        Args:
+            target: The target position to reach
+            
+        Returns:
+            int: The minimum number of instructions needed
+        """
+        dp = [-1] * (target + 1)
+        dp[0] = 0
+        for t in range(1, target + 1):
+            n = t.bit_length()
+            if t == (1 &lt;&lt; n) - 1:
+                dp[t] = n
+                continue
+            dp[t] = n + 1 + dp[(1 &lt;&lt; n) - 1 - t]
+            for m in range(n - 1):
+                dp[t] = min(dp[t], n - 1 + 1 + m + 1 + dp[t - (1 &lt;&lt; n - 1) +
+                    (1 &lt;&lt; m)])
+        return dp[target]
+
+    def racecar_bfs(self, target: int) -&gt;int:
+        """
+        Find the minimum number of instructions using BFS.
+        
+        Args:
+            target: The target position to reach
+            
+        Returns:
+            int: The minimum number of instructions needed
+        """
+        queue = deque([(0, 1, 0)])
+        visited = set([(0, 1)])
+        while queue:
+            pos, speed, instructions = queue.popleft()
+            if pos == target:
+                return instructions
+            new_pos = pos + speed
+            new_speed = speed * 2
+            if (new_pos, new_speed
+                ) not in visited and 0 &lt;= new_pos &lt;= 2 * target:
+                queue.append((new_pos, new_speed, instructions + 1))
+                visited.add((new_pos, new_speed))
+            new_pos = pos
+            new_speed = -1 if speed &gt; 0 else 1
+            if (new_pos, new_speed
+                ) not in visited and 0 &lt;= new_pos &lt;= 2 * target:
+                queue.append((new_pos, new_speed, instructions + 1))
+                visited.add((new_pos, new_speed))
+        return -1
+
+    def racecar_recursive(self, target: int) -&gt;int:
+        """
+        Dynamic programming with recursion and memoization.
+        
+        Args:
+            target: The target position to reach
+            
+        Returns:
+            int: The minimum number of instructions needed
+        """
+        memo = {}
+
+        def dp(t):
+            if t in memo:
+                return memo[t]
+            n = t.bit_length()
+            if t == (1 &lt;&lt; n) - 1:
+                memo[t] = n
+                return n
+            memo[t] = n + 1 + dp((1 &lt;&lt; n) - 1 - t)
+            for m in range(n - 1):
+                memo[t] = min(memo[t], n - 1 + 1 + m + 1 + dp(t - (1 &lt;&lt; n -
+                    1) + (1 &lt;&lt; m)))
+            return memo[t]
+        return dp(target)
+
+
+if __name__ == '__main__':
+    # Example usage based on LeetCode sample
+    solution = Solution()
     
-    <span class="keyword">while</span> queue:
-        pos, speed, path = queue.popleft()
-        
-        <span class="keyword">if</span> pos == target:
-            <span class="keyword">return</span> <span class="function">len</span>(path)
-        
-        <span class="comment"># Accelerate</span>
-        new_pos, new_speed = pos + speed, speed * <span class="number">2</span>
-        <span class="keyword">if</span> (new_pos, new_speed) <span class="keyword">not in</span> visited <span class="keyword">and</span> \
-           <span class="number">0</span> < new_pos < <span class="number">2</span> * target:
-            visited.<span class="function">add</span>((new_pos, new_speed))
-            queue.<span class="function">append</span>((new_pos, new_speed, path + <span class="string">"A"</span>))
-        
-        <span class="comment"># Reverse</span>
-        new_speed = -<span class="number">1</span> <span class="keyword">if</span> speed > <span class="number">0</span> <span class="keyword">else</span> <span class="number">1</span>
-        <span class="keyword">if</span> (pos, new_speed) <span class="keyword">not in</span> visited:
-            visited.<span class="function">add</span>((pos, new_speed))
-            queue.<span class="function">append</span>((pos, new_speed, path + <span class="string">"R"</span>))
+    # Example 1
+    target1 = 3
+    result1 = solution.racecar(target1)
+    print(f"Example 1: {result1}")  # Expected: 2
     
-    <span class="keyword">return</span> -<span class="number">1</span></pre>
+    # Example 2
+    target2 = 6
+    result2 = solution.racecar(target2)
+    print(f"Example 2: {result2}")  # Expected: 5
+</pre>
             </div>
         </div>
     </div>
@@ -261,6 +373,17 @@
         }
 
         function stepForward() {
+            if (!optimalPath) {
+                target = parseInt(document.getElementById('targetInput').value) || 6;
+                if (target < 1) target = 1;
+                if (target > 20) target = 20;
+                currentStep = 0;
+                position = 0;
+                speed = 1;
+                history = [{ cmd: null, pos: 0, speed: 1 }];
+                optimalPath = findPath(target);
+            }
+
             if (currentStep >= optimalPath.length) return;
             
             const cmd = optimalPath[currentStep];

@@ -70,29 +70,132 @@
         <div class="code-section">
             <h3>💻 Python Solution</h3>
             <div class="code-block">
-                <pre><span class="keyword">def</span> <span class="function">eraseOverlapIntervals</span>(intervals):
-    <span class="string">"""
-    Greedy: sort by end time, remove overlapping.
-    Time: O(n log n), Space: O(1)
-    """</span>
-    <span class="keyword">if</span> <span class="keyword">not</span> intervals:
-        <span class="keyword">return</span> <span class="number">0</span>
+                <pre>from typing import List
+
+
+"""
+LeetCode Non-Overlapping Intervals
+
+Problem from LeetCode: https://leetcode.com/problems/non-overlapping-intervals/
+
+Given an array of intervals intervals where intervals[i] = [starti, endi], 
+return the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping.
+
+Example 1:
+    Input: intervals = [[1,2],[2,3],[3,4],[1,3]]
+    Output: 1
+    Explanation: [1,3] can be removed and the rest of the intervals are non-overlapping.
+
+Example 2:
+    Input: intervals = [[1,2],[1,2],[1,2]]
+    Output: 2
+    Explanation: You need to remove two [1,2] to make the rest of the intervals non-overlapping.
+
+Example 3:
+    Input: intervals = [[1,2],[2,3]]
+    Output: 0
+    Explanation: You don't need to remove any of the intervals since they're already non-overlapping.
+
+Constraints:
+    1 &lt;= intervals.length &lt;= 10^5
+    intervals[i].length == 2
+    -5 * 10^4 &lt;= starti &lt; endi &lt;= 5 * 10^4
+"""
+
+class Solution:
+
+    def erase_overlap_intervals(self, intervals: List[List[int]]) -&gt;int:
+        """
+        Return the minimum number of intervals to remove to make the rest
+        of the intervals non-overlapping.
+        
+        Args:
+            intervals: A list of interval pairs where intervals[i] = [start_i, end_i]
+            
+        Returns:
+            int: The minimum number of intervals you need to remove
+        """
+        if not intervals:
+            return 0
+        intervals.sort(key=lambda x: x[0])
+        prev = 0
+        count = 0
+        for i in range(1, len(intervals)):
+            if intervals[prev][1] &gt; intervals[i][0]:
+                if intervals[prev][1] &gt; intervals[i][1]:
+                    prev = i
+                count += 1
+            else:
+                prev = i
+        return count
+
+    def eraseOverlapIntervals_end_sort(self, intervals: List[List[int]]) -&gt;int:
+        """
+        Alternative approach sorting by end time.
+        
+        Args:
+            intervals: A list of interval pairs where intervals[i] = [start_i, end_i]
+            
+        Returns:
+            int: The minimum number of intervals you need to remove
+        """
+        if not intervals:
+            return 0
+        intervals.sort(key=lambda x: x[1])
+        count = 0
+        end = float('-inf')
+        for interval in intervals:
+            if interval[0] &gt;= end:
+                end = interval[1]
+                count += 1
+        return len(intervals) - count
+
+    def eraseOverlapIntervals_greedy(self, intervals: List[List[int]]) -&gt;int:
+        """
+        Greedy approach removing minimum number of intervals.
+        
+        Args:
+            intervals: A list of interval pairs where intervals[i] = [start_i, end_i]
+            
+        Returns:
+            int: The minimum number of intervals you need to remove
+        """
+        if not intervals:
+            return 0
+        intervals.sort(key=lambda x: x[1])
+        non_overlap_count = 1
+        end = intervals[0][1]
+        for i in range(1, len(intervals)):
+            if intervals[i][0] &gt;= end:
+                non_overlap_count += 1
+                end = intervals[i][1]
+        return len(intervals) - non_overlap_count
+
+
+if __name__ == '__main__':
+    # Example usage based on LeetCode sample
+    solution = Solution()
     
-    <span class="comment"># Sort by end time</span>
-    intervals.<span class="function">sort</span>(key=<span class="keyword">lambda</span> x: <span class="class-name">x</span>[<span class="number">1</span>])
+    # Example 1: intervals = [[1,2],[2,3],[3,4],[1,3]]
+    print("Example 1:")
+    result = solution.erase_overlap_intervals([[1,2],[2,3],[3,4],[1,3]])
+    print(f"Output: {result}")  # Expected: 1
     
-    removed = <span class="number">0</span>
-    prev_end = intervals[<span class="number">0</span>][<span class="number">1</span>]
+    # Example 2: intervals = [[1,2],[1,2],[1,2]]
+    print("\nExample 2:")
+    result = solution.erase_overlap_intervals([[1,2],[1,2],[1,2]])
+    print(f"Output: {result}")  # Expected: 2
     
-    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="function">range</span>(<span class="number">1</span>, <span class="function">len</span>(intervals)):
-        <span class="keyword">if</span> intervals[i][<span class="number">0</span>] < prev_end:
-            <span class="comment"># Overlap - remove this interval</span>
-            removed += <span class="number">1</span>
-        <span class="keyword">else</span>:
-            <span class="comment"># No overlap - update prev_end</span>
-            prev_end = intervals[i][<span class="number">1</span>]
+    # Example 3: intervals = [[1,2],[2,3]]
+    print("\nExample 3:")
+    result = solution.erase_overlap_intervals([[1,2],[2,3]])
+    print(f"Output: {result}")  # Expected: 0
     
-    <span class="keyword">return</span> removed</pre>
+    # Test with alternative implementations
+    print("\nAlternative implementations:")
+    print("End sort approach:", solution.eraseOverlapIntervals_end_sort([[1,2],[2,3],[3,4],[1,3]]))
+    print("Greedy approach:", solution.eraseOverlapIntervals_greedy([[1,2],[2,3],[3,4],[1,3]]))
+</pre>
             </div>
         </div>
     </div>

@@ -79,21 +79,131 @@
         <div class="code-section">
             <h3>💻 Python Solution</h3>
             <div class="code-block">
-                <pre><span class="keyword">import</span> heapq
+                <pre>import heapq
+from typing import List
 
-<span class="keyword">class</span> <span class="function">KthLargest</span>:
-    <span class="keyword">def</span> <span class="function">__init__</span>(self, k, nums):
+
+"""
+LeetCode Kth Largest Element In A Stream
+
+Problem from LeetCode: https://leetcode.com/problems/kth-largest-element-in-a-stream/
+
+Description:
+Design a class to find the kth largest element in a stream. Note that it is the kth largest element in the sorted order, not the kth distinct element.
+
+Implement KthLargest class:
+- KthLargest(int k, int[] nums) Initializes the object with the integer k and the stream of integers nums.
+- int add(int val) Appends the integer val to the stream and returns the element representing the kth largest element in the stream.
+
+Example 1:
+Input:
+["KthLargest", "add", "add", "add", "add", "add"]
+[[3, [4, 5, 8, 2]], [3], [5], [10], [9], [4]]
+Output:
+[null, 4, 5, 5, 8, 8]
+
+Explanation:
+KthLargest kthLargest = new KthLargest(3, [4, 5, 8, 2]);
+kthLargest.add(3);   // return 4
+kthLargest.add(5);   // return 5
+kthLargest.add(10);  // return 5
+kthLargest.add(9);   // return 8
+kthLargest.add(4);   // return 8
+
+Constraints:
+1 &lt;= k &lt;= 10^4
+0 &lt;= nums.length &lt;= 10^4
+-10^4 &lt;= nums[i] &lt;= 10^4
+-10^4 &lt;= val &lt;= 10^4
+At most 10^4 calls will be made to add.
+It is guaranteed that there will be at least k elements in the array when you search for the kth element.
+"""
+
+class KthLargest:
+
+    def __init__(self, k: int, nums: List[int]):
+        """
+        Initialize the K-th largest element finder with the value k and initial elements.
+        
+        Args:
+            k: The k value for finding the kth largest element
+            nums: Array of initial numbers
+        """
         self.k = k
-        self.heap = nums
-        heapq.<span class="function">heapify</span>(self.heap)
-        <span class="keyword">while</span> <span class="function">len</span>(self.heap) > k:
-            heapq.<span class="function">heappop</span>(self.heap)
+        self.min_heap = []
+        for num in nums:
+            self.add(num)
+
+    def add(self, val: int) -&gt;int:
+        """
+        Add a new value to the stream and return the k-th largest.
+        
+        Args:
+            val: The value to add to the stream
+            
+        Returns:
+            int: The k-th largest element in the stream
+        """
+        if len(self.min_heap) &lt; self.k:
+            heapq.heappush(self.min_heap, val)
+        elif val &gt; self.min_heap[0]:
+            heapq.heappushpop(self.min_heap, val)
+        return self.min_heap[0] if self.min_heap else None
+
+
+class KthLargestAlternative:
+
+    def __init__(self, k: int, nums: List[int]):
+        """
+        Alternative implementation using heapq.nlargest.
+        
+        Args:
+            k: The k value for finding the kth largest element
+            nums: Array of initial numbers
+        """
+        self.k = k
+        self.heap = []
+        self.nums = nums
+        self.heap = heapq.nlargest(k, nums + [float('-inf')])
+        heapq._heapify_max(self.heap)
+
+    def add(self, val: int) -&gt;int:
+        """
+        Add a new value to the stream and return the k-th largest.
+        
+        Args:
+            val: The value to add to the stream
+            
+        Returns:
+            int: The k-th largest element in the stream
+        """
+        self.nums.append(val)
+        self.heap = heapq.nlargest(self.k, self.nums)
+        return self.heap[-1] if len(self.heap) &gt;= self.k else None
+
+
+if __name__ == '__main__':
+    # Example usage based on LeetCode sample
+    kthLargest = KthLargest(3, [4, 5, 8, 2])
     
-    <span class="keyword">def</span> <span class="function">add</span>(self, val):
-        heapq.<span class="function">heappush</span>(self.heap, val)
-        <span class="keyword">if</span> <span class="function">len</span>(self.heap) > self.k:
-            heapq.<span class="function">heappop</span>(self.heap)
-        <span class="keyword">return</span> self.heap[<span class="number">0</span>]  <span class="comment"># Root is kth largest</span></pre>
+    # Add elements and get the kth largest
+    print(kthLargest.add(3))    # Expected: 4
+    print(kthLargest.add(5))    # Expected: 5
+    print(kthLargest.add(10))   # Expected: 5
+    print(kthLargest.add(9))    # Expected: 8
+    print(kthLargest.add(4))    # Expected: 8
+    
+    # Test the alternative implementation
+    print("\nTesting alternative implementation:")
+    kthLargestAlt = KthLargestAlternative(3, [4, 5, 8, 2])
+    
+    # Add elements and get the kth largest
+    print(kthLargestAlt.add(3))    # Expected: 4
+    print(kthLargestAlt.add(5))    # Expected: 5
+    print(kthLargestAlt.add(10))   # Expected: 5
+    print(kthLargestAlt.add(9))    # Expected: 8
+    print(kthLargestAlt.add(4))    # Expected: 8
+</pre>
             </div>
         </div>
     </div>

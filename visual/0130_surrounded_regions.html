@@ -70,36 +70,119 @@
         <div class="code-section">
             <h3>💻 Python Solution</h3>
             <div class="code-block">
-                <pre><span class="keyword">def</span> <span class="function">solve</span>(board):
-    <span class="string">"""
-    1. DFS from border 'O's, mark as 'T' (temporary)
-    2. Flip remaining 'O's to 'X' (captured)
-    3. Restore 'T's back to 'O'
-    Time: O(m*n), Space: O(m*n) for recursion
-    """</span>
-    <span class="keyword">if</span> <span class="keyword">not</span> board: <span class="keyword">return</span>
-    m, n = <span class="function">len</span>(board), <span class="function">len</span>(board[<span class="number">0</span>])
+                <pre>from typing import List, Optional
+
+"""
+LeetCode Surrounded Regions
+
+Problem from LeetCode: https://leetcode.com/problems/surrounded-regions/
+
+Description:
+Given an m x n matrix board containing 'X' and 'O', capture all regions that are 4-directionally surrounded by 'X'.
+A region is captured by flipping all 'O's into 'X's in that surrounded region.
+
+Example 1:
+Input: board = [["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]
+Output: [["X","X","X","X"],["X","X","X","X"],["X","X","X","X"],["X","O","X","X"]]
+Explanation: Surrounded regions should not be on the border, which means that any 'O' on the border of the board are not flipped to 'X'.
+Any 'O' that is not on the border and it is not connected to an 'O' on the border will be flipped to 'X'.
+Two cells are connected if they are adjacent cells connected horizontally or vertically.
+
+Example 2:
+Input: board = [["X"]]
+Output: [["X"]]
+"""
+
+class Solution:
+
+    def solve(self, board):
+        """
+        Do not return anything, modify board in-place instead.
+        """
+        if not board or not board[0]:
+            return
+        m, n = len(board), len(board[0])
+
+        def dfs(i, j):
+            if i &lt; 0 or i &gt;= m or j &lt; 0 or j &gt;= n or board[i][j] != 'O':
+                return
+            board[i][j] = 'T'
+            dfs(i + 1, j)
+            dfs(i - 1, j)
+            dfs(i, j + 1)
+            dfs(i, j - 1)
+        for i in range(m):
+            for j in range(n):
+                if (i == 0 or i == m - 1 or j == 0 or j == n - 1) and board[i][
+                    j] == 'O':
+                    dfs(i, j)
+        for i in range(m):
+            for j in range(n):
+                if board[i][j] == 'O':
+                    board[i][j] = 'X'
+                elif board[i][j] == 'T':
+                    board[i][j] = 'O'
+
+
+def print_board(board):
+    """Helper function to print the board in a readable format"""
+    for row in board:
+        print(''.join(row))
+
+if __name__ == '__main__':
+    # Example usage based on LeetCode sample
+    solution = Solution()
     
-    <span class="keyword">def</span> <span class="function">dfs</span>(r, c):
-        <span class="keyword">if</span> r < <span class="number">0</span> <span class="keyword">or</span> r >= m <span class="keyword">or</span> c < <span class="number">0</span> <span class="keyword">or</span> c >= n:
-            <span class="keyword">return</span>
-        <span class="keyword">if</span> board[r][c] != <span class="string">'O'</span>:
-            <span class="keyword">return</span>
-        board[r][c] = <span class="string">'T'</span>  <span class="comment"># Mark as safe</span>
-        <span class="function">dfs</span>(r+<span class="number">1</span>, c); <span class="function">dfs</span>(r-<span class="number">1</span>, c)
-        <span class="function">dfs</span>(r, c+<span class="number">1</span>); <span class="function">dfs</span>(r, c-<span class="number">1</span>)
+    # Example 1
+    board1 = [
+        ["X", "X", "X", "X"],
+        ["X", "O", "O", "X"],
+        ["X", "X", "O", "X"],
+        ["X", "O", "X", "X"]
+    ]
+    print("Example 1:")
+    print("Original board:")
+    print_board(board1)
     
-    <span class="comment"># Mark border-connected O's</span>
-    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="function">range</span>(m):
-        <span class="function">dfs</span>(i, <span class="number">0</span>); <span class="function">dfs</span>(i, n-<span class="number">1</span>)
-    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="function">range</span>(n):
-        <span class="function">dfs</span>(<span class="number">0</span>, j); <span class="function">dfs</span>(m-<span class="number">1</span>, j)
+    solution.solve(board1)
     
-    <span class="comment"># Flip O->X (captured), T->O (safe)</span>
-    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="function">range</span>(m):
-        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="function">range</span>(n):
-            <span class="keyword">if</span> board[i][j] == <span class="string">'O'</span>: <span class="class-name">board</span>[i][j] = <span class="string">'X'</span>
-            <span class="keyword">elif</span> board[i][j] == <span class="string">'T'</span>: <span class="class-name">board</span>[i][j] = <span class="string">'O'</span></pre>
+    print("\nAfter capturing surrounded regions:")
+    print_board(board1)
+    # Expected output:
+    # XXXX
+    # XXXX
+    # XXXX
+    # XOXX
+    
+    # Example 2
+    board2 = [["X"]]
+    print("\nExample 2:")
+    print("Original board:")
+    print_board(board2)
+    
+    solution.solve(board2)
+    
+    print("\nAfter capturing surrounded regions:")
+    print_board(board2)
+    # Expected output: X
+    
+    # Additional example
+    board3 = [
+        ["X", "O", "X", "O", "X"],
+        ["O", "X", "O", "X", "O"],
+        ["X", "O", "X", "O", "X"],
+        ["O", "X", "O", "X", "O"]
+    ]
+    print("\nExample 3:")
+    print("Original board:")
+    print_board(board3)
+    
+    solution.solve(board3)
+    
+    print("\nAfter capturing surrounded regions:")
+    print_board(board3)
+    # Expected: 'O's on border remain 'O', inner surrounded 'O's become 'X'
+</pre>
             </div>
         </div>
     </div>

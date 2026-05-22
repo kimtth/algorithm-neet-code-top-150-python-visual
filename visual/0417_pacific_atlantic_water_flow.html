@@ -52,27 +52,202 @@
         <section class="code-section">
             <h3>💻 Python Solution</h3>
             <div class="code-block">
-                <pre><span class="keyword">def</span> <span class="function">pacificAtlantic</span>(heights):
-    rows, cols = <span class="function">len</span>(heights), <span class="function">len</span>(heights[<span class="number">0</span>])
-    pacific, atlantic = <span class="function">set</span>(), <span class="function">set</span>()
+                <pre>from typing import List
+
+
+"""
+LeetCode Pacific Atlantic Water Flow
+
+Problem from LeetCode: https://leetcode.com/problems/pacific-atlantic-water-flow/
+
+There is an m x n rectangular island that borders both the Pacific Ocean and Atlantic Ocean. 
+The Pacific Ocean touches the island's left and top edges, and the Atlantic Ocean touches 
+the island's right and bottom edges.
+
+The island is partitioned into a grid of square cells. You are given an m x n integer matrix 
+heights where heights[r][c] represents the height above sea level of the cell at coordinate (r, c).
+
+The island receives a lot of rain, and the rain water can flow to neighboring cells directly 
+north, south, east, and west if the neighboring cell's height is less than or equal to the 
+current cell's height. Water can flow from any cell adjacent to an ocean into the ocean.
+
+Return a 2D list of grid coordinates result where result[i] = [ri, ci] denotes that rain water 
+can flow from cell (ri, ci) to both the Pacific and Atlantic oceans.
+
+Example 1:
+    Input: heights = [[1,2,2,3,5],[3,2,3,4,4],[2,4,5,3,1],[6,7,1,4,5],[5,1,1,2,4]]
+    Output: [[0,4],[1,3],[1,4],[2,2],[3,0],[3,1],[4,0]]
+    Explanation: The following cells can flow to both the Pacific and Atlantic oceans:
+    - [0,4]: [0,4] -&gt; Pacific Ocean 
+             [0,4] -&gt; Atlantic Ocean
+    - [1,3]: [1,3] -&gt; [0,3] -&gt; Pacific Ocean 
+             [1,3] -&gt; [1,4] -&gt; Atlantic Ocean
+    - [1,4]: [1,4] -&gt; [1,3] -&gt; [0,3] -&gt; Pacific Ocean 
+             [1,4] -&gt; Atlantic Ocean
+    - [2,2]: [2,2] -&gt; [1,2] -&gt; [0,2] -&gt; Pacific Ocean 
+             [2,2] -&gt; [2,3] -&gt; [2,4] -&gt; Atlantic Ocean
+    - [3,0]: [3,0] -&gt; Pacific Ocean 
+             [3,0] -&gt; [4,0] -&gt; Atlantic Ocean
+    - [3,1]: [3,1] -&gt; [3,0] -&gt; Pacific Ocean 
+             [3,1] -&gt; [4,1] -&gt; Atlantic Ocean
+    - [4,0]: [4,0] -&gt; Pacific Ocean 
+             [4,0] -&gt; Atlantic Ocean
+
+Example 2:
+    Input: heights = [[2,1],[1,2]]
+    Output: [[0,0],[0,1],[1,0],[1,1]]
+    Explanation: Water can flow to both the Pacific and Atlantic Ocean from all cells.
+
+Constraints:
+    m == heights.length
+    n == heights[r].length
+    1 &lt;= m, n &lt;= 200
+    0 &lt;= heights[r][c] &lt;= 10^5
+"""
+
+class Solution:
+
+    def pacific_atlantic(self, heights: List[List[int]]) -&gt;List[List[int]]:
+        """
+        Find all points where water can flow to both the Pacific and Atlantic oceans.
+        
+        Pacific Ocean touches the top and left edges of the matrix.
+        Atlantic Ocean touches the bottom and right edges of the matrix.
+        Water can flow from a cell to adjacent cells with heights &lt;= the current cell height.
+        
+        Args:
+            heights: A 2D matrix representing the heights of the land
+            
+        Returns:
+            List[List[int]]: A list of [row, col] coordinates that can flow to both oceans
+        """
+        if not heights or not heights[0]:
+            return []
+        rows = len(heights)
+        cols = len(heights[0])
+        pacific_reachable = [([False] * cols) for _ in range(rows)]
+        atlantic_reachable = [([False] * cols) for _ in range(rows)]
+        for i in range(rows):
+            self.dfs(i, 0, pacific_reachable, heights)
+            self.dfs(i, cols - 1, atlantic_reachable, heights)
+        for j in range(cols):
+            self.dfs(0, j, pacific_reachable, heights)
+            self.dfs(rows - 1, j, atlantic_reachable, heights)
+        result = []
+        for i in range(rows):
+            for j in range(cols):
+                if pacific_reachable[i][j] and atlantic_reachable[i][j]:
+                    result.append([i, j])
+        return result
+
+    def dfs(self, row: int, col: int, reachable: List[List[bool]], heights:
+        List[List[int]]) -&gt;None:
+        """
+        DFS helper function to mark cells that can reach a certain ocean.
+        
+        Args:
+            row: Current row
+            col: Current column
+            reachable: Matrix to mark cells that can reach an ocean
+            heights: The height matrix
+        """
+        reachable[row][col] = True
+        directions = [(0, 1), (1, 0), (-1, 0), (0, -1)]
+        for dx, dy in directions:
+            new_row, new_col = row + dx, col + dy
+            if new_row &lt; 0 or new_row &gt;= len(heights
+                ) or new_col &lt; 0 or new_col &gt;= len(heights[0]):
+                continue
+            if reachable[new_row][new_col]:
+                continue
+            if heights[new_row][new_col] &lt; heights[row][col]:
+                continue
+            self.dfs(new_row, new_col, reachable, heights)
+
+    def pacificAtlantic_bfs(self, heights: List[List[int]]) -&gt;List[List[int]]:
+        """
+        BFS approach to solve the problem.
+        
+        Args:
+            heights: A 2D matrix representing the heights of the land
+            
+        Returns:
+            List[List[int]]: A list of [row, col] coordinates that can flow to both oceans
+        """
+        if not heights or not heights[0]:
+            return []
+        rows, cols = len(heights), len(heights[0])
+        pacific_queue = []
+        atlantic_queue = []
+        for i in range(rows):
+            pacific_queue.append((i, 0))
+            atlantic_queue.append((i, cols - 1))
+        for j in range(cols):
+            pacific_queue.append((0, j))
+            atlantic_queue.append((rows - 1, j))
+        pacific_reachable = self.bfs(pacific_queue, heights)
+        atlantic_reachable = self.bfs(atlantic_queue, heights)
+        return [[i, j] for i in range(rows) for j in range(cols) if 
+            pacific_reachable[i][j] and atlantic_reachable[i][j]]
+
+    def bfs(self, queue: List[tuple], heights: List[List[int]]) -&gt;List[List
+        [bool]]:
+        """
+        BFS helper function.
+        
+        Args:
+            queue: Initial cells to start BFS from
+            heights: The height matrix
+            
+        Returns:
+            List[List[bool]]: Matrix marking cells that can reach an ocean
+        """
+        rows, cols = len(heights), len(heights[0])
+        reachable = [([False] * cols) for _ in range(rows)]
+        for r, c in queue:
+            reachable[r][c] = True
+        directions = [(0, 1), (1, 0), (-1, 0), (0, -1)]
+        while queue:
+            row, col = queue.pop(0)
+            for dx, dy in directions:
+                new_row, new_col = row + dx, col + dy
+                if (0 &lt;= new_row &lt; rows and 0 &lt;= new_col &lt; cols and not
+                    reachable[new_row][new_col] and heights[new_row][
+                    new_col] &gt;= heights[row][col]):
+                    reachable[new_row][new_col] = True
+                    queue.append((new_row, new_col))
+        return reachable
+
+
+if __name__ == '__main__':
+    # Example usage based on LeetCode sample
+    solution = Solution()
     
-    <span class="keyword">def</span> <span class="function">dfs</span>(r, c, visited, prev_height):
-        <span class="keyword">if</span> (r < <span class="number">0</span> <span class="keyword">or</span> c < <span class="number">0</span> <span class="keyword">or</span> r >= rows <span class="keyword">or</span> c >= cols <span class="keyword">or</span> 
-            (r,c) <span class="keyword">in</span> visited <span class="keyword">or</span> heights[r][c] < prev_height):
-            <span class="keyword">return</span>
-        visited.<span class="function">add</span>((r, c))
-        <span class="keyword">for</span> dr, dc <span class="keyword">in</span> [(<span class="number">0</span>,<span class="number">1</span>), (<span class="number">0</span>,<span class="number">-1</span>), (<span class="number">1</span>,<span class="number">0</span>), (<span class="number">-1</span>,<span class="number">0</span>)]:
-            <span class="function">dfs</span>(r+dr, c+dc, visited, heights[r][c])
+    # Example 1: heights = [[1,2,2,3,5],[3,2,3,4,4],[2,4,5,3,1],[6,7,1,4,5],[5,1,1,2,4]]
+    print("Example 1:")
+    heights1 = [
+        [1,2,2,3,5],
+        [3,2,3,4,4],
+        [2,4,5,3,1],
+        [6,7,1,4,5],
+        [5,1,1,2,4]
+    ]
+    result = solution.pacific_atlantic(heights1)
+    print(f"Output: {result}")  # Expected: [[0,4],[1,3],[1,4],[2,2],[3,0],[3,1],[4,0]]
     
-    <span class="comment"># Start from ocean edges</span>
-    <span class="keyword">for</span> c <span class="keyword">in</span> <span class="function">range</span>(cols):
-        <span class="function">dfs</span>(<span class="number">0</span>, c, pacific, <span class="number">0</span>)       <span class="comment"># Top edge (Pacific)</span>
-        <span class="function">dfs</span>(rows-<span class="number">1</span>, c, atlantic, <span class="number">0</span>) <span class="comment"># Bottom edge (Atlantic)</span>
-    <span class="keyword">for</span> r <span class="keyword">in</span> <span class="function">range</span>(rows):
-        <span class="function">dfs</span>(r, <span class="number">0</span>, pacific, <span class="number">0</span>)       <span class="comment"># Left edge (Pacific)</span>
-        <span class="function">dfs</span>(r, cols-<span class="number">1</span>, atlantic, <span class="number">0</span>) <span class="comment"># Right edge (Atlantic)</span>
+    # Example 2: heights = [[2,1],[1,2]]
+    print("\nExample 2:")
+    heights2 = [
+        [2,1],
+        [1,2]
+    ]
+    result = solution.pacific_atlantic(heights2)
+    print(f"Output: {result}")  # Expected: [[0,0],[0,1],[1,0],[1,1]]
     
-    <span class="keyword">return</span> <span class="function">list</span>(pacific & atlantic)</pre>
+    # Test with alternative implementation
+    print("\nBFS approach:")
+    print(solution.pacificAtlantic_bfs(heights1))
+</pre>
             </div>
         </section>
     </div>
