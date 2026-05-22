@@ -68,20 +68,114 @@
         <div class="code-section">
             <h3>💻 Python Solution</h3>
             <div class="code-block">
-                <pre><span class="keyword">def</span> <span class="function">isAlienSorted</span>(self, words: List[<span class="class-name">str</span>], order: <span class="class-name">str</span>) -> <span class="class-name">bool</span>:
-    <span class="comment"># Create order map: char -> position</span>
-    order_map = {char: i <span class="keyword">for</span> i, char <span class="keyword">in</span> <span class="function">enumerate</span>(order)}
+                <pre>from typing import List
+
+
+"""
+LeetCode Verifying An Alien Dictionary
+
+Problem from LeetCode: https://leetcode.com/problems/verifying-an-alien-dictionary/
+
+In an alien language, surprisingly, they also use English lowercase letters, but possibly in a different order. 
+The order of the alphabet is some permutation of lowercase letters.
+
+Given a sequence of words written in the alien language, and the order of the alphabet, 
+return true if and only if the given words are sorted lexicographically in this alien language.
+
+Example 1:
+Input: words = ["hello","leetcode"], order = "hlabcdefgijkmnopqrstuvwxyz"
+Output: true
+Explanation: As 'h' comes before 'l' in this language, then the sequence is sorted.
+
+Example 2:
+Input: words = ["word","world","row"], order = "worldabcefghijkmnpqstuvxyz"
+Output: false
+Explanation: As 'd' comes after 'l' in this language, then words[0] &gt; words[1], hence the sequence is unsorted.
+
+Example 3:
+Input: words = ["apple","app"], order = "abcdefghijklmnopqrstuvwxyz"
+Output: false
+Explanation: The first three characters "app" match, and the second string is shorter (in size.) 
+According to lexicographical rules "apple" &gt; "app", because 'l' &gt; '∅', where '∅' is defined as the blank character 
+which is less than any other character.
+
+Constraints:
+- 1 &lt;= words.length &lt;= 100
+- 1 &lt;= words[i].length &lt;= 20
+- order.length == 26
+- All characters in words[i] and order are English lowercase letters.
+"""
+
+class Solution:
+
+    def is_alien_sorted(self, words: List[str], order: str) -&gt;bool:
+        """
+        Check if the words are sorted lexicographically by the alien language order.
+        
+        Args:
+            words: List of words to check
+            order: The alien language alphabet order
+            
+        Returns:
+            bool: True if the words are sorted according to the alien order, False otherwise
+        """
+        order_map = {char: i for i, char in enumerate(order)}
+        for i in range(len(words) - 1):
+            word1, word2 = words[i], words[i + 1]
+            for j in range(len(word1)):
+                if j &gt;= len(word2):
+                    return False
+                if word1[j] != word2[j]:
+                    if order_map[word2[j]] &lt; order_map[word1[j]]:
+                        return False
+                    break
+        return True
+
+    def isAlienSorted_alt(self, words: List[str], order: str) -&gt;bool:
+        """
+        Alternative implementation using a key function for comparisons.
+        
+        Args:
+            words: List of words to check
+            order: The alien language alphabet order
+            
+        Returns:
+            bool: True if the words are sorted, False otherwise
+        """
+        order_map = {char: i for i, char in enumerate(order)}
+        for w1, w2 in zip(words, words[1:]):
+            if len(w1) &gt; len(w2) and w1[:len(w2)] == w2:
+                return False
+            for c1, c2 in zip(w1, w2):
+                if c1 != c2:
+                    if order_map[c1] &gt; order_map[c2]:
+                        return False
+                    break
+        return True
+
+
+if __name__ == '__main__':
+    # Example usage based on LeetCode sample
+    solution = Solution()
     
-    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="function">range</span>(<span class="function">len</span>(words) - <span class="number">1</span>):
-        word1, word2 = words[i], words[i + <span class="number">1</span>]
-        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="function">range</span>(<span class="function">len</span>(word1)):
-            <span class="keyword">if</span> j >= <span class="function">len</span>(word2):  <span class="comment"># word2 is prefix of word1</span>
-                <span class="keyword">return</span> <span class="class-name">False</span>
-            <span class="keyword">if</span> word1[j] != word2[j]:
-                <span class="keyword">if</span> order_map[word2[j]] < order_map[word1[j]]:
-                    <span class="keyword">return</span> <span class="class-name">False</span>
-                <span class="keyword">break</span>
-    <span class="keyword">return</span> <span class="class-name">True</span></pre>
+    # Example 1
+    words = ["hello","leetcode"]
+    order = "hlabcdefgijkmnopqrstuvwxyz"
+    result = solution.is_alien_sorted(words, order)
+    print(f"Example 1: {result}")  # Expected: True
+    
+    # Example 2
+    words = ["word","world","row"]
+    order = "worldabcefghijkmnpqstuvxyz"
+    result = solution.is_alien_sorted(words, order)
+    print(f"Example 2: {result}")  # Expected: False
+    
+    # Example 3
+    words = ["apple","app"]
+    order = "abcdefghijklmnopqrstuvwxyz"
+    result = solution.is_alien_sorted(words, order)
+    print(f"Example 3: {result}")  # Expected: False
+</pre>
             </div>
         </div>
     </div>

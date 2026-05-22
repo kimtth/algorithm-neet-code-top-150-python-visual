@@ -59,21 +59,133 @@ Output: true ([1,5,5] and [11])
         <section class="code-section">
             <h3>💻 Python Solution</h3>
             <div class="code-block">
-                <pre><span class="keyword">def</span> <span class="function">canPartition</span>(nums):
-    total = <span class="function">sum</span>(nums)
-    <span class="keyword">if</span> total % <span class="number">2</span> != <span class="number">0</span>:
-        <span class="keyword">return</span> <span class="keyword">False</span>
+                <pre>from typing import List
+
+
+"""
+LeetCode Partition Equal Subset Sum
+
+Problem from LeetCode: https://leetcode.com/problems/partition-equal-subset-sum/
+
+Given an integer array nums, return true if you can partition the array into two subsets 
+such that the sum of the elements in both subsets is equal or false otherwise.
+
+Example 1:
+    Input: nums = [1,5,11,5]
+    Output: true
+    Explanation: The array can be partitioned as [1, 5, 5] and [11].
+
+Example 2:
+    Input: nums = [1,2,3,5]
+    Output: false
+    Explanation: The array cannot be partitioned into equal sum subsets.
+
+Constraints:
+    1 &lt;= nums.length &lt;= 200
+    1 &lt;= nums[i] &lt;= 100
+"""
+
+class Solution:
+
+    def can_partition(self, nums: List[int]) -&gt;bool:
+        """
+        Determine if the given array can be partitioned into two subsets 
+        with equal sum.
+        
+        Args:
+            nums: Array of positive integers
+            
+        Returns:
+            bool: True if the array can be partitioned into two subsets with equal sum
+        """
+        total_sum = sum(nums)
+        if total_sum % 2 != 0:
+            return False
+        target = total_sum // 2
+        dp = [False] * (target + 1)
+        dp[0] = True
+        for num in nums:
+            for j in range(target, num - 1, -1):
+                if dp[j - num]:
+                    dp[j] = True
+        return dp[target]
+
+    def canPartition_memo(self, nums: List[int]) -&gt;bool:
+        """
+        Recursive approach with memoization.
+        
+        Args:
+            nums: Array of positive integers
+            
+        Returns:
+            bool: True if the array can be partitioned into two subsets with equal sum
+        """
+        total_sum = sum(nums)
+        if total_sum % 2 != 0:
+            return False
+        target = total_sum // 2
+        memo = {}
+
+        def dfs(index, current_sum):
+            if current_sum &gt; target:
+                return False
+            if current_sum == target:
+                return True
+            if index == len(nums):
+                return False
+            if (index, current_sum) in memo:
+                return memo[index, current_sum]
+            memo[index, current_sum] = dfs(index + 1, current_sum + nums[index]
+                ) or dfs(index + 1, current_sum)
+            return memo[index, current_sum]
+        return dfs(0, 0)
+
+    def canPartition_2d(self, nums: List[int]) -&gt;bool:
+        """
+        2D dynamic programming approach.
+        
+        Args:
+            nums: Array of positive integers
+            
+        Returns:
+            bool: True if the array can be partitioned into two subsets with equal sum
+        """
+        total_sum = sum(nums)
+        if total_sum % 2 != 0:
+            return False
+        target = total_sum // 2
+        n = len(nums)
+        dp = [([False] * (target + 1)) for _ in range(n + 1)]
+        for i in range(n + 1):
+            dp[i][0] = True
+        for i in range(1, n + 1):
+            num = nums[i - 1]
+            for j in range(1, target + 1):
+                dp[i][j] = dp[i - 1][j]
+                if j &gt;= num:
+                    dp[i][j] = dp[i][j] or dp[i - 1][j - num]
+        return dp[n][target]
+
+
+if __name__ == '__main__':
+    # Example usage based on LeetCode sample
+    solution = Solution()
     
-    target = total // <span class="number">2</span>
-    dp = [<span class="keyword">False</span>] * (target + <span class="number">1</span>)
-    dp[<span class="number">0</span>] = <span class="keyword">True</span>
+    # Example 1: nums = [1,5,11,5]
+    print("Example 1:")
+    result = solution.can_partition([1,5,11,5])
+    print(f"Output: {result}")  # Expected: true
     
-    <span class="keyword">for</span> num <span class="keyword">in</span> nums:
-        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="function">range</span>(target, num - <span class="number">1</span>, <span class="number">-1</span>):
-            <span class="keyword">if</span> dp[j - num]:
-                dp[j] = <span class="keyword">True</span>
+    # Example 2: nums = [1,2,3,5]
+    print("\nExample 2:")
+    result = solution.can_partition([1,2,3,5])
+    print(f"Output: {result}")  # Expected: false
     
-    <span class="keyword">return</span> dp[target]</pre>
+    # Test with alternative implementations
+    print("\nAlternative implementations:")
+    print("Memoization approach:", solution.canPartition_memo([1,5,11,5]))
+    print("2D DP approach:", solution.canPartition_2d([1,5,11,5]))
+</pre>
             </div>
         </section>
     </div>

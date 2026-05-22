@@ -75,45 +75,143 @@
         <div class="code-section">
             <h3>💻 Python Solution</h3>
             <div class="code-block">
-                <pre><span class="keyword">def</span> <span class="function">spiralOrder</span>(matrix):
-    <span class="string">"""
-    Traverse in spiral: right, down, left, up.
-    Shrink boundaries after each direction.
-    Time: O(m*n), Space: O(1) extra
-    """</span>
-    result = []
-    top, bottom = <span class="number">0</span>, <span class="function">len</span>(matrix) - <span class="number">1</span>
-    left, right = <span class="number">0</span>, <span class="function">len</span>(matrix[<span class="number">0</span>]) - <span class="number">1</span>
+                <pre>from typing import List
+
+"""
+LeetCode Spiral Matrix
+
+Problem from LeetCode: https://leetcode.com/problems/spiral-matrix/
+
+Description:
+Given an m x n matrix, return all elements of the matrix in spiral order.
+
+Example 1:
+Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]
+Output: [1,2,3,6,9,8,7,4,5]
+
+Example 2:
+Input: matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
+Output: [1,2,3,4,8,12,11,10,9,5,6,7]
+"""
+
+class Solution:
+    def spiral_order(self, matrix: List[List[int]]) -&gt; List[int]:
+        """
+        Traverse the matrix in spiral order.
+        
+        Args:
+            matrix: m x n matrix of integers
+            
+        Returns:
+            List[int]: Elements of the matrix in spiral order
+        """
+        if not matrix:
+            return []
+        
+        result = []
+        m, n = len(matrix), len(matrix[0])
+        
+        # Define the boundaries
+        top, bottom = 0, m - 1
+        left, right = 0, n - 1
+        
+        while top &lt;= bottom and left &lt;= right:
+            # Traverse right
+            for j in range(left, right + 1):
+                result.append(matrix[top][j])
+            top += 1
+            
+            # Traverse down
+            for i in range(top, bottom + 1):
+                result.append(matrix[i][right])
+            right -= 1
+            
+            # Traverse left (if there are rows left)
+            if top &lt;= bottom:
+                for j in range(right, left - 1, -1):
+                    result.append(matrix[bottom][j])
+                bottom -= 1
+            
+            # Traverse up (if there are columns left)
+            if left &lt;= right:
+                for i in range(bottom, top - 1, -1):
+                    result.append(matrix[i][left])
+                left += 1
+        
+        return result
     
-    <span class="keyword">while</span> top <= bottom <span class="keyword">and</span> left <= right:
-        <span class="comment"># Right</span>
-        <span class="keyword">for</span> col <span class="keyword">in</span> <span class="function">range</span>(left, right + <span class="number">1</span>):
-            result.<span class="function">append</span>(matrix[top][col])
-        top += <span class="number">1</span>
+    def spiral_order_direction(self, matrix: List[List[int]]) -&gt; List[int]:
+        """
+        Alternative implementation using direction changes.
         
-        <span class="comment"># Down</span>
-        <span class="keyword">for</span> row <span class="keyword">in</span> <span class="function">range</span>(top, bottom + <span class="number">1</span>):
-            result.<span class="function">append</span>(matrix[row][right])
-        right -= <span class="number">1</span>
+        Args:
+            matrix: m x n matrix of integers
+            
+        Returns:
+            List[int]: Elements of the matrix in spiral order
+        """
+        if not matrix:
+            return []
         
-        <span class="keyword">if</span> top <= bottom:
-            <span class="comment"># Left</span>
-            <span class="keyword">for</span> col <span class="keyword">in</span> <span class="function">range</span>(right, left - <span class="number">1</span>, <span class="number">-1</span>):
-                result.<span class="function">append</span>(matrix[bottom][col])
-            bottom -= <span class="number">1</span>
+        m, n = len(matrix), len(matrix[0])
+        result = []
         
-        <span class="keyword">if</span> left <= right:
-            <span class="comment"># Up</span>
-            <span class="keyword">for</span> row <span class="keyword">in</span> <span class="function">range</span>(bottom, top - <span class="number">1</span>, <span class="number">-1</span>):
-                result.<span class="function">append</span>(matrix[row][left])
-            left += <span class="number">1</span>
+        # Direction vectors: right, down, left, up
+        directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
+        direction_idx = 0
+        
+        # Starting position
+        row, col = 0, 0
+        
+        # Matrix to track visited cells
+        visited = [[False for _ in range(n)] for _ in range(m)]
+        
+        for _ in range(m * n):
+            result.append(matrix[row][col])
+            visited[row][col] = True
+            
+            # Calculate next position
+            next_row = row + directions[direction_idx][0]
+            next_col = col + directions[direction_idx][1]
+            
+            # Check if we need to change direction
+            if (next_row &lt; 0 or next_row &gt;= m or 
+                next_col &lt; 0 or next_col &gt;= n or 
+                visited[next_row][next_col]):
+                # Change direction
+                direction_idx = (direction_idx + 1) % 4
+                next_row = row + directions[direction_idx][0]
+                next_col = col + directions[direction_idx][1]
+            
+            row, col = next_row, next_col
+        
+        return result
+
+if __name__ == '__main__':
+    # Example usage based on LeetCode sample
+    solution = Solution()
     
-    <span class="keyword">return</span> result</pre>
+    # Example 1
+    matrix1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    result1 = solution.spiral_order(matrix1)
+    print(f"Example 1: {result1}")  # Expected output: [1,2,3,6,9,8,7,4,5]
+    
+    # Example 2
+    matrix2 = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]
+    result2 = solution.spiral_order(matrix2)
+    print(f"Example 2: {result2}")  # Expected output: [1,2,3,4,8,12,11,10,9,5,6,7]
+    
+    # Compare with direction-based approach
+    print("\nUsing direction-based approach:")
+    print(f"Example 1: {solution.spiral_order_direction(matrix1)}")
+    print(f"Example 2: {solution.spiral_order_direction(matrix2)}")
+</pre>
             </div>
         </div>
     </div>
 
     <script>
+    {
         const matrix = [
             [1, 2, 3, 4],
             [5, 6, 7, 8],
@@ -371,6 +469,7 @@
         document.getElementById("resetBtn").addEventListener("click", reset);
 
         draw();
+    }
     </script>
 
     <style>

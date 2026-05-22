@@ -97,46 +97,76 @@
         <section class="code-section">
             <h3>💻 Python Solution (Kruskal's)</h3>
             <div class="code-block">
-                <pre><span class="keyword">def</span> <span class="function">minCostConnectPoints</span>(points: <span class="class-name">List</span>[List[int]]) -> int:
-    n = <span class="function">len</span>(points)
+                <pre>import heapq
+
+
+"""
+LeetCode Min Cost To Connect All Points
+
+Problem from LeetCode: https://leetcode.com/problems/min-cost-to-connect-all-points/
+
+You are given an array points representing integer coordinates of some points on a 2D-plane, where points[i] = [xi, yi].
+
+The cost of connecting two points [xi, yi] and [xj, yj] is the manhattan distance between them: |xi - xj| + |yi - yj|, 
+where |val| denotes the absolute value of val.
+
+Return the minimum cost to make all points connected. All points are connected if there is exactly one simple path between any two points.
+
+Example 1:
+Input: points = [[0,0],[2,2],[3,10],[5,2],[7,0]]
+Output: 20
+Explanation: 
+We can connect the points as shown above to get the minimum cost of 20.
+Notice that there is a unique path between every pair of points.
+
+Example 2:
+Input: points = [[3,12],[-2,5],[-4,1]]
+Output: 18
+
+Constraints:
+- 1 &lt;= points.length &lt;= 1000
+- -10^6 &lt;= xi, yi &lt;= 10^6
+- All pairs (xi, yi) are distinct.
+"""
+
+class Solution:
+
+    def min_cost_connect_points(self, points: list[list[int]]) -&gt;int:
+        n = len(points)
+        pq = [(0, 0)]
+        in_mst = [False] * n
+        min_cost = 0
+        points_connected = 0
+        while points_connected &lt; n:
+            distance, curr_index = heapq.heappop(pq)
+            if in_mst[curr_index]:
+                continue
+            in_mst[curr_index] = True
+            min_cost += distance
+            points_connected += 1
+            for next_index in range(n):
+                if not in_mst[next_index]:
+                    next_distance = abs(points[curr_index][0] - points[
+                        next_index][0]) + abs(points[curr_index][1] -
+                        points[next_index][1])
+                    heapq.heappush(pq, (next_distance, next_index))
+        return min_cost
+
+
+if __name__ == '__main__':
+    # Example usage based on LeetCode sample
+    solution = Solution()
     
-    <span class="comment"># Build all edges with Manhattan distance</span>
-    edges = []
-    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="function">range</span>(n):
-        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="function">range</span>(i + <span class="number">1</span>, n):
-            dist = <span class="function">abs</span>(points[i][<span class="number">0</span>] - points[j][<span class="number">0</span>]) + <span class="function">abs</span>(points[i][<span class="number">1</span>] - points[j][<span class="number">1</span>])
-            edges.<span class="function">append</span>((dist, i, j))
+    # Example 1
+    points = [[0,0],[2,2],[3,10],[5,2],[7,0]]
+    result = solution.min_cost_connect_points(points)
+    print(f"Example 1: {result}")  # Expected: 20
     
-    <span class="comment"># Sort edges by cost</span>
-    edges.<span class="function">sort</span>()
-    
-    <span class="comment"># Union-Find</span>
-    parent = <span class="function">list</span>(<span class="function">range</span>(n))
-    
-    <span class="keyword">def</span> <span class="function">find</span>(x):
-        <span class="keyword">if</span> parent[x] != x:
-            parent[x] = <span class="function">find</span>(parent[x])
-        <span class="keyword">return</span> parent[x]
-    
-    <span class="keyword">def</span> <span class="function">union</span>(x, y):
-        px, py = <span class="function">find</span>(x), <span class="function">find</span>(y)
-        <span class="keyword">if</span> px == py:
-            <span class="keyword">return</span> <span class="keyword">False</span>
-        parent[px] = py
-        <span class="keyword">return</span> <span class="keyword">True</span>
-    
-    <span class="comment"># Kruskal's: add edges if no cycle</span>
-    total_cost = <span class="number">0</span>
-    edges_added = <span class="number">0</span>
-    
-    <span class="keyword">for</span> cost, u, v <span class="keyword">in</span> edges:
-        <span class="keyword">if</span> <span class="function">union</span>(u, v):
-            total_cost += cost
-            edges_added += <span class="number">1</span>
-            <span class="keyword">if</span> edges_added == n - <span class="number">1</span>:
-                <span class="keyword">break</span>
-    
-    <span class="keyword">return</span> total_cost</pre>
+    # Example 2
+    points = [[3,12],[-2,5],[-4,1]]
+    result = solution.min_cost_connect_points(points)
+    print(f"Example 2: {result}")  # Expected: 18
+</pre>
             </div>
         </section>
     </div>
