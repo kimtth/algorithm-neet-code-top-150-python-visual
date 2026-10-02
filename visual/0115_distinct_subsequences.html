@@ -43,17 +43,18 @@
 
         </section>
 
+
+
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>This algorithm solves the problem <strong>step by step</strong>:</p>
+            <p>Count in how many ways the first <code>j</code> letters of t can be picked from the first <code>i</code> letters of s.</p>
             <ul>
-                <li><strong>Understand:</strong> Parse the input data</li>
-                <li><strong>Process:</strong> Apply the core logic</li>
-                <li><strong>Optimize:</strong> Use efficient data structures</li>
-                <li><strong>Return:</strong> Output the computed result</li>
+                <li><strong>Empty target:</strong> There is exactly one way to build an empty t</li>
+                <li><strong>Letters match:</strong> Add the ways that use this letter and the ways that skip it</li>
+                <li><strong>Letters differ:</strong> The letter cannot be used, so copy the count from the row above</li>
+                <li><strong>Answer:</strong> The bottom-right cell</li>
             </ul>
         </div>
-
 
         <section class="visualization-section">
             <h3>🎬 Step-by-Step Visualization</h3>

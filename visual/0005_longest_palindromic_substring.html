@@ -14,10 +14,9 @@
             <p><strong>Problem:</strong> Find the longest palindromic substring in a given string.</p>
             <p><strong>Pattern:</strong> Expand Around Center - For each position, expand outward while characters match</p>
             <div class="problem-meta">
-                <span class="meta-tag">🌳 Tree</span>
                 <span class="meta-tag">🔤 String</span>
                 <span class="meta-tag">🧮 DP</span>
-                <span class="meta-tag">⏱️ O(n)</span>
+                <span class="meta-tag">⏱️ O(n²)</span>
             </div>
             <div class="file-ref">
                 📄 Python: <code>python/0005_longest_palindromic_substring/0005_longest_palindromic_substring.py</code>
@@ -27,12 +26,12 @@
 
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>Tree traversal is like <strong>exploring a family tree</strong>:</p>
+            <p>Finding the longest palindrome by <strong>expanding from every center</strong>:</p>
             <ul>
-                <li><strong>Root:</strong> Start at the top node</li>
-                <li><strong>Recurse:</strong> Visit left and right children</li>
-                <li><strong>Base case:</strong> Stop at null/leaf nodes</li>
-                <li><strong>Combine:</strong> Build answer from subtree results</li>
+                <li><strong>Centers:</strong> Every character and every gap between two characters</li>
+                <li><strong>Expand:</strong> Move left and right outward while the characters match</li>
+                <li><strong>Track:</strong> Remember the longest span found so far</li>
+                <li><strong>Cost:</strong> n centers, each expanding up to n steps</li>
             </ul>
         </div>
 

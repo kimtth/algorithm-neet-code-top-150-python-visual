@@ -16,8 +16,8 @@
                 Uses Bellman-Ford algorithm: relax all edges K+1 times.
             </p>
             <div class="problem-meta">
-                <span class="meta-tag">⛰️ Heap</span>
-                <span class="meta-tag">⏱️ O(n)</span>
+                <span class="meta-tag">📊 Graph</span>
+                <span class="meta-tag">⏱️ O(K × E)</span>
             </div>
             <div class="file-ref">
                 📄 Python: <code>python/0787_cheapest_flights_within_k_stops/0787_cheapest_flights_within_k_stops.py</code>
@@ -27,12 +27,12 @@
 
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>A heap is like a <strong>priority queue</strong> - always access the best element:</p>
+            <p>Finding the cheapest route with <strong>Bellman-Ford</strong>:</p>
             <ul>
-                <li><strong>Min heap:</strong> Smallest element always on top</li>
-                <li><strong>Max heap:</strong> Largest element always on top</li>
-                <li><strong>Insert/Remove:</strong> O(log n) to maintain order</li>
-                <li><strong>Use case:</strong> Great for "top K" problems</li>
+                <li><strong>Rounds:</strong> At most K stops means K+1 rounds of edge relaxation</li>
+                <li><strong>Snapshot:</strong> Each round relaxes edges using the previous round's costs</li>
+                <li><strong>Relax:</strong> Keep the lower cost to each city</li>
+                <li><strong>Answer:</strong> The cost of the destination after the last round</li>
             </ul>
         </div>
 
@@ -252,6 +252,7 @@ if __name__ == '__main__':
         ];
 
         let costs = [];
+        let prevCosts = [];
         let iteration = 0;
         let currentEdge = null;
         let animationTimer = null;
@@ -260,6 +261,7 @@ if __name__ == '__main__':
         function reset() {
             costs = new Array(n).fill(Infinity);
             costs[src] = 0;
+            prevCosts = [...costs];
             iteration = 0;
             edgeIdx = 0;
             currentEdge = null;
@@ -478,6 +480,7 @@ if __name__ == '__main__':
                 iteration++;
                 edgeIdx = 0;
                 currentEdge = null;
+                prevCosts = [...costs];
                 
                 if (iteration > k) {
                     const result = costs[dst];
@@ -494,20 +497,18 @@ if __name__ == '__main__':
             const [u, v, cost] = flights[edgeIdx];
             currentEdge = [u, v];
 
-            const tempCosts = [...costs];
-            if (costs[u] !== Infinity && tempCosts[v] > costs[u] + cost) {
-                tempCosts[v] = costs[u] + cost;
+            if (prevCosts[u] !== Infinity && costs[v] > prevCosts[u] + cost) {
+                costs[v] = prevCosts[u] + cost;
                 document.getElementById("status").textContent = 
-                    `Edge (${u}→${v}): Update cost[${v}] = ${costs[u]} + ${cost} = ${tempCosts[v]}`;
-            } else if (costs[u] === Infinity) {
+                    `Edge (${u}→${v}): Update cost[${v}] = ${prevCosts[u]} + ${cost} = ${costs[v]}`;
+            } else if (prevCosts[u] === Infinity) {
                 document.getElementById("status").textContent = 
                     `Edge (${u}→${v}): Skip - source cost[${u}] is ∞`;
             } else {
                 document.getElementById("status").textContent = 
-                    `Edge (${u}→${v}): No improvement - ${costs[v]} ≤ ${costs[u]} + ${cost}`;
+                    `Edge (${u}→${v}): No improvement - ${costs[v]} ≤ ${prevCosts[u]} + ${cost}`;
             }
 
-            costs = tempCosts;
             edgeIdx++;
             render();
         }

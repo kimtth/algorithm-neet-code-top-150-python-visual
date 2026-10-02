@@ -31,17 +31,18 @@ Schedule: A → B → idle → A → B → idle → A → B
             </pre>
         </div>
 
+
+
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>This algorithm solves the problem <strong>step by step</strong>:</p>
+            <p>Always run the task with the most work left, and use idle slots only if nothing else is available inside the cooldown window.</p>
             <ul>
-                <li><strong>Understand:</strong> Parse the input data</li>
-                <li><strong>Process:</strong> Apply the core logic</li>
-                <li><strong>Optimize:</strong> Use efficient data structures</li>
-                <li><strong>Return:</strong> Output the computed result</li>
+                <li><strong>Counts:</strong> Put every task count in a max-heap</li>
+                <li><strong>Round:</strong> Pick up to <code>n + 1</code> different tasks, reducing each count by one</li>
+                <li><strong>Time:</strong> A full round costs <code>n + 1</code>; the last one costs only the tasks run</li>
+                <li><strong>Repeat:</strong> Push the remaining tasks back and continue</li>
             </ul>
         </div>
-
 
         <section class="visualization-section">
             <h3>🎬 Step-by-Step Visualization</h3>

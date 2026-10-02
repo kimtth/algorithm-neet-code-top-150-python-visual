@@ -23,17 +23,17 @@
 
         </div>
 
+
+
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>This algorithm solves the problem <strong>step by step</strong>:</p>
+            <p>Add the edges one by one and use <strong>Union-Find</strong> to see whether the two ends are already connected.</p>
             <ul>
-                <li><strong>Understand:</strong> Parse the input data</li>
-                <li><strong>Process:</strong> Apply the core logic</li>
-                <li><strong>Optimize:</strong> Use efficient data structures</li>
-                <li><strong>Return:</strong> Output the computed result</li>
+                <li><strong>Find:</strong> Each node has a root representing its group</li>
+                <li><strong>Union:</strong> Merge the groups of the two ends</li>
+                <li><strong>Cycle:</strong> If they already share a root, this edge closes a cycle and is the answer</li>
             </ul>
         </div>
-
 
         <div class="visualization-section">
             <h3>🎬 Step-by-Step Visualization</h3>

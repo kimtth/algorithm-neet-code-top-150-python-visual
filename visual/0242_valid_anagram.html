@@ -16,7 +16,7 @@
             <p><strong>File:</strong> 0242_valid_anagram/0242_valid_anagram.py</p>
             <div class="problem-meta">
                 <span class="meta-tag">🔤 String</span>
-                <span class="meta-tag">📚 Stack</span>
+                <span class="meta-tag">🗂️ Hash Map</span>
                 <span class="meta-tag">⏱️ O(n)</span>
             </div>
             <div class="file-ref">
@@ -27,12 +27,12 @@
 
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>A stack works like a <strong>pile of plates</strong> - last in, first out (LIFO):</p>
+            <p>Comparing letters with <strong>character counts</strong>:</p>
             <ul>
-                <li><strong>Push:</strong> Add item to the top</li>
-                <li><strong>Pop:</strong> Remove and return the top item</li>
-                <li><strong>Peek:</strong> Look at top without removing</li>
-                <li><strong>Match pairs:</strong> Great for matching brackets, parentheses</li>
+                <li><strong>Length:</strong> Different lengths can never be anagrams</li>
+                <li><strong>Count:</strong> Add one for each letter of s, subtract one for each letter of t</li>
+                <li><strong>Check:</strong> All counts must end at zero</li>
+                <li><strong>Cost:</strong> One pass over each string</li>
             </ul>
         </div>
 

@@ -25,17 +25,17 @@
 
         </div>
 
+
+
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>This algorithm solves the problem <strong>step by step</strong>:</p>
+            <p>Add one to the last digit and pass a carry to the left only when a digit is 9.</p>
             <ul>
-                <li><strong>Understand:</strong> Parse the input data</li>
-                <li><strong>Process:</strong> Apply the core logic</li>
-                <li><strong>Optimize:</strong> Use efficient data structures</li>
-                <li><strong>Return:</strong> Output the computed result</li>
+                <li><strong>From the right:</strong> A digit below 9 is incremented and we are done</li>
+                <li><strong>Nines:</strong> A 9 becomes 0 and the carry continues left</li>
+                <li><strong>All nines:</strong> Return a new array that starts with 1 followed by zeros</li>
             </ul>
         </div>
-
 
         <section class="visualization-section">
             <h3>🎬 Step-by-Step Visualization</h3>

@@ -18,7 +18,7 @@
             </p>
             <div class="problem-meta">
                 <span class="meta-tag">🔢 Math</span>
-                <span class="meta-tag">⏱️ O(n)</span>
+                <span class="meta-tag">⏱️ O(log n)</span>
             </div>
             <div class="file-ref">
                 📄 Python: <code>python/0050_pow(x,_n)/0050_pow(x,_n).py</code>
@@ -26,17 +26,18 @@
 
         </div>
 
+
+
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>This algorithm solves the problem <strong>step by step</strong>:</p>
+            <p>Square the base repeatedly so that the exponent is halved each time (<strong>fast exponentiation</strong>).</p>
             <ul>
-                <li><strong>Understand:</strong> Parse the input data</li>
-                <li><strong>Process:</strong> Apply the core logic</li>
-                <li><strong>Optimize:</strong> Use efficient data structures</li>
-                <li><strong>Return:</strong> Output the computed result</li>
+                <li><strong>Negative power:</strong> Use <code>1 / x</code> and make <code>n</code> positive</li>
+                <li><strong>Odd bit:</strong> If <code>n</code> is odd, multiply the result by the current base</li>
+                <li><strong>Square:</strong> Square the base and halve <code>n</code></li>
+                <li><strong>Result:</strong> About log n multiplications instead of n</li>
             </ul>
         </div>
-
 
         <section class="visualization-section">
             <h3>🎬 Step-by-Step Visualization</h3>

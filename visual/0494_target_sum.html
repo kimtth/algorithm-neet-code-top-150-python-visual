@@ -18,7 +18,7 @@
             <div class="problem-meta">
                 <span class="meta-tag">📊 Array</span>
                 <span class="meta-tag">🧮 DP</span>
-                <span class="meta-tag">⏱️ O(n)</span>
+                <span class="meta-tag">⏱️ O(n × sum)</span>
             </div>
             <div class="file-ref">
                 📄 Python: <code>python/0494_target_sum/0494_target_sum.py</code>
@@ -32,17 +32,18 @@ Output: 5 ways
             </pre>
         </div>
 
+
+
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>This algorithm solves the problem <strong>step by step</strong>:</p>
+            <p>Choosing + or - for each number is the same as choosing a subset that sums to <code>(total + target) / 2</code>.</p>
             <ul>
-                <li><strong>Understand:</strong> Parse the input data</li>
-                <li><strong>Process:</strong> Apply the core logic</li>
-                <li><strong>Optimize:</strong> Use efficient data structures</li>
-                <li><strong>Return:</strong> Output the computed result</li>
+                <li><strong>Check:</strong> If that value is not a whole non-negative number, there are 0 ways</li>
+                <li><strong>Subset count:</strong> <code>dp[j]</code> counts subsets that sum to j</li>
+                <li><strong>Update:</strong> For each number, go from large j to small and add <code>dp[j - num]</code></li>
+                <li><strong>Answer:</strong> <code>dp[subset_sum]</code></li>
             </ul>
         </div>
-
 
         <section class="visualization-section">
             <h3>🎬 Step-by-Step Visualization</h3>

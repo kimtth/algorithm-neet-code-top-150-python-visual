@@ -23,17 +23,17 @@
 
         </div>
 
+
+
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>This algorithm solves the problem <strong>step by step</strong>:</p>
+            <p>Read the numeral from left to right and add each symbol, except when a smaller symbol sits in front of a larger one, which means subtraction.</p>
             <ul>
-                <li><strong>Understand:</strong> Parse the input data</li>
-                <li><strong>Process:</strong> Apply the core logic</li>
-                <li><strong>Optimize:</strong> Use efficient data structures</li>
-                <li><strong>Return:</strong> Output the computed result</li>
+                <li><strong>Look ahead:</strong> Compare the current value with the next one</li>
+                <li><strong>Subtract pair:</strong> If current &lt; next, add <code>next - current</code> and skip both</li>
+                <li><strong>Otherwise:</strong> Add the current value and move one step</li>
             </ul>
         </div>
-
 
         <div class="visualization-section">
             <h3>🎬 Step-by-Step Visualization</h3>

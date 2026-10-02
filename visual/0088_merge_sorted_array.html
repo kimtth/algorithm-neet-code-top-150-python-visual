@@ -24,8 +24,8 @@
             </p>
             <div class="problem-meta">
                 <span class="meta-tag">📊 Array</span>
-                <span class="meta-tag">📊 Sorting</span>
-                <span class="meta-tag">⏱️ O(n log n)</span>
+                <span class="meta-tag">👉 Two Pointers</span>
+                <span class="meta-tag">⏱️ O(m + n)</span>
             </div>
             <div class="file-ref">
                 📄 Python: <code>python/0088_merge_sorted_array/0088_merge_sorted_array.py</code>
@@ -35,12 +35,12 @@
 
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>A linked list is like a <strong>chain of train cars</strong>:</p>
+            <p>Merging two sorted arrays <strong>from the back</strong>:</p>
             <ul>
-                <li><strong>Each node:</strong> Contains data and points to next node</li>
-                <li><strong>Traversal:</strong> Follow the chain one node at a time</li>
-                <li><strong>Modification:</strong> Redirect links to rearrange</li>
-                <li><strong>Two pointers:</strong> Often use slow/fast pointers</li>
+                <li><strong>Three pointers:</strong> One at the end of each array's data, one at the last slot of nums1</li>
+                <li><strong>Pick the larger:</strong> Write the bigger tail value into the last free slot</li>
+                <li><strong>Move left:</strong> Shift the pointers that were used</li>
+                <li><strong>No overwrite:</strong> Writing from the back never destroys unread values</li>
             </ul>
         </div>
 

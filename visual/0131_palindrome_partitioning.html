@@ -18,7 +18,7 @@
             <div class="problem-meta">
                 <span class="meta-tag">🔤 String</span>
                 <span class="meta-tag">🔄 Backtracking</span>
-                <span class="meta-tag">⏱️ O(n)</span>
+                <span class="meta-tag">⏱️ O(n × 2ⁿ)</span>
             </div>
             <div class="file-ref">
                 📄 Python: <code>python/0131_palindrome_partitioning/0131_palindrome_partitioning.py</code>
@@ -26,17 +26,18 @@
 
         </div>
 
+
+
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>This algorithm solves the problem <strong>step by step</strong>:</p>
+            <p>Cut the string into pieces, but only keep a cut if the piece is a palindrome. <strong>Backtracking</strong> tries every option.</p>
             <ul>
-                <li><strong>Understand:</strong> Parse the input data</li>
-                <li><strong>Process:</strong> Apply the core logic</li>
-                <li><strong>Optimize:</strong> Use efficient data structures</li>
-                <li><strong>Return:</strong> Output the computed result</li>
+                <li><strong>Choose:</strong> From the current start, try each end position</li>
+                <li><strong>Check:</strong> Only continue if <code>s[start..end]</code> is a palindrome</li>
+                <li><strong>Recurse and undo:</strong> Add the piece, explore the rest, then remove it</li>
+                <li><strong>Record:</strong> When the start reaches the end, save the current list of pieces</li>
             </ul>
         </div>
-
 
         <section class="visualization-section">
             <h3>🎬 Step-by-Step Visualization</h3>

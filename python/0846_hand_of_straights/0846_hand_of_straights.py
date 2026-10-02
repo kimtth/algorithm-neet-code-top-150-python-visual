@@ -56,10 +56,7 @@ class Solution:
                     return False
                 card_counts[current_card] -= 1
                 if card_counts[current_card] == 0:
-                    if current_card != sorted_cards[0]:
-                        del card_counts[current_card]
-                    else:
-                        pass
+                    del card_counts[current_card]
             while sorted_cards and sorted_cards[0] not in card_counts:
                 sorted_cards.pop(0)
         return True

@@ -18,7 +18,7 @@
             </p>
             <div class="problem-meta">
                 <span class="meta-tag">📝 Algorithm</span>
-                <span class="meta-tag">⏱️ O(n)</span>
+                <span class="meta-tag">⏱️ O(n³)</span>
             </div>
             <div class="file-ref">
                 📄 Python: <code>python/0312_burst_balloons/0312_burst_balloons.py</code>
@@ -32,17 +32,18 @@ Burst order: 1→5→3→8 gives 3×1×5 + 3×5×8 + 1×3×8 + 1×8×1 = 167
             </pre>
         </div>
 
+
+
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>This algorithm solves the problem <strong>step by step</strong>:</p>
+            <p>Think backwards: choose which balloon is burst <strong>last</strong> in a range, so its neighbours are fixed.</p>
             <ul>
-                <li><strong>Understand:</strong> Parse the input data</li>
-                <li><strong>Process:</strong> Apply the core logic</li>
-                <li><strong>Optimize:</strong> Use efficient data structures</li>
-                <li><strong>Return:</strong> Output the computed result</li>
+                <li><strong>Padding:</strong> Add a 1 at each end</li>
+                <li><strong>Ranges:</strong> For every range, try each balloon <code>i</code> as the last one</li>
+                <li><strong>Value:</strong> <code>nums[left-1] * nums[i] * nums[right+1]</code> plus the best of the left and right parts</li>
+                <li><strong>Answer:</strong> The best value for the whole range</li>
             </ul>
         </div>
-
 
         <section class="visualization-section">
             <h3>🎬 Step-by-Step Visualization</h3>

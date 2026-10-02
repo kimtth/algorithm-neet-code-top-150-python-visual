@@ -17,7 +17,7 @@
             </p>
             <div class="problem-meta">
                 <span class="meta-tag">🧮 DP</span>
-                <span class="meta-tag">⏱️ O(n)</span>
+                <span class="meta-tag">⏱️ O(m × n)</span>
             </div>
             <div class="file-ref">
                 📄 Python: <code>python/0062_unique_paths/0062_unique_paths.py</code>
@@ -32,12 +32,12 @@ Output: 28 unique paths
 
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>Tree traversal is like <strong>exploring a family tree</strong>:</p>
+            <p>Counting grid paths with <strong>dynamic programming</strong>:</p>
             <ul>
-                <li><strong>Root:</strong> Start at the top node</li>
-                <li><strong>Recurse:</strong> Visit left and right children</li>
-                <li><strong>Base case:</strong> Stop at null/leaf nodes</li>
-                <li><strong>Combine:</strong> Build answer from subtree results</li>
+                <li><strong>Each cell:</strong> Paths = paths from above + paths from the left</li>
+                <li><strong>Base:</strong> The first row and first column each have exactly 1 path</li>
+                <li><strong>Fill:</strong> Go row by row so both inputs are already known</li>
+                <li><strong>Answer:</strong> The bottom-right cell</li>
             </ul>
         </div>
 

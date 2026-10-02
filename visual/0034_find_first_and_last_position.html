@@ -18,7 +18,7 @@
             </p>
             <div class="problem-meta">
                 <span class="meta-tag">🔍 Binary Search</span>
-                <span class="meta-tag">⏱️ O(n)</span>
+                <span class="meta-tag">⏱️ O(log n)</span>
             </div>
             <div class="file-ref">
                 📄 Python: <code>python/0034_find_first_and_last_position_of_element_in_sorted_array/0034_find_first_and_last_position_of_element_in_sorted_array.py</code>
@@ -26,17 +26,18 @@
 
         </div>
 
+
+
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>This algorithm solves the problem <strong>step by step</strong>:</p>
+            <p>Run a binary search twice: once to find the <strong>leftmost</strong> match and once to find the <strong>rightmost</strong>.</p>
             <ul>
-                <li><strong>Understand:</strong> Parse the input data</li>
-                <li><strong>Process:</strong> Apply the core logic</li>
-                <li><strong>Optimize:</strong> Use efficient data structures</li>
-                <li><strong>Return:</strong> Output the computed result</li>
+                <li><strong>Leftmost:</strong> On a match, remember the index and keep searching the left half</li>
+                <li><strong>Not found:</strong> If no left match exists, return <code>[-1, -1]</code></li>
+                <li><strong>Rightmost:</strong> On a match, remember the index and keep searching the right half</li>
+                <li><strong>Answer:</strong> Return both indices</li>
             </ul>
         </div>
-
 
         <section class="visualization-section">
             <h3>🎬 Step-by-Step Visualization</h3>

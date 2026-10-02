@@ -23,17 +23,17 @@
 
         </div>
 
+
+
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>This algorithm solves the problem <strong>step by step</strong>:</p>
+            <p>Greedy change-making: always use the largest Roman symbol that still fits.</p>
             <ul>
-                <li><strong>Understand:</strong> Parse the input data</li>
-                <li><strong>Process:</strong> Apply the core logic</li>
-                <li><strong>Optimize:</strong> Use efficient data structures</li>
-                <li><strong>Return:</strong> Output the computed result</li>
+                <li><strong>Table:</strong> Values from 1000 down to 1, including the subtractive ones like 900 (CM) and 4 (IV)</li>
+                <li><strong>Take:</strong> While the number is at least the current value, append its symbol and subtract</li>
+                <li><strong>Move on:</strong> Go to the next smaller value until the number reaches 0</li>
             </ul>
         </div>
-
 
         <div class="visualization-section">
             <h3>🎬 Step-by-Step Visualization</h3>

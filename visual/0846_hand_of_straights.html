@@ -15,7 +15,7 @@
             <p><strong>Pattern:</strong> Greedy + Hash Map - Start with smallest card, try to form consecutive groups</p>
             <div class="problem-meta">
                 <span class="meta-tag">💰 Greedy</span>
-                <span class="meta-tag">⏱️ O(n)</span>
+                <span class="meta-tag">⏱️ O(n log n)</span>
             </div>
             <div class="file-ref">
                 📄 Python: <code>python/0846_hand_of_straights/0846_hand_of_straights.py</code>
@@ -23,17 +23,18 @@
 
         </div>
 
+
+
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>This algorithm solves the problem <strong>step by step</strong>:</p>
+            <p>Always start a group at the smallest card left, then take the next <code>groupSize - 1</code> consecutive cards.</p>
             <ul>
-                <li><strong>Understand:</strong> Parse the input data</li>
-                <li><strong>Process:</strong> Apply the core logic</li>
-                <li><strong>Optimize:</strong> Use efficient data structures</li>
-                <li><strong>Return:</strong> Output the computed result</li>
+                <li><strong>Check size:</strong> The hand size must be divisible by the group size</li>
+                <li><strong>Count:</strong> Keep how many copies of each card remain</li>
+                <li><strong>Build group:</strong> From the smallest card, take <code>first, first+1, ...</code>; a missing card means failure</li>
+                <li><strong>Repeat:</strong> Continue until no cards remain</li>
             </ul>
         </div>
-
 
         <div class="visualization-section">
             <h3>🎬 Step-by-Step Visualization</h3>
@@ -132,10 +133,7 @@ class Solution:
                     return False
                 card_counts[current_card] -= 1
                 if card_counts[current_card] == 0:
-                    if current_card != sorted_cards[0]:
-                        del card_counts[current_card]
-                    else:
-                        pass
+                    del card_counts[current_card]
             while sorted_cards and sorted_cards[0] not in card_counts:
                 sorted_cards.pop(0)
         return True

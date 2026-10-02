@@ -18,7 +18,7 @@
             </p>
             <div class="problem-meta">
                 <span class="meta-tag">📝 Algorithm</span>
-                <span class="meta-tag">⏱️ O(n)</span>
+                <span class="meta-tag">⏱️ O(n² log n)</span>
             </div>
             <div class="file-ref">
                 📄 Python: <code>python/0778_swim_in_rising_water/0778_swim_in_rising_water.py</code>
@@ -26,17 +26,18 @@
 
         </div>
 
+
+
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>This algorithm solves the problem <strong>step by step</strong>:</p>
+            <p>Find the path whose <strong>highest cell</strong> is as low as possible. A min-heap always expands the lowest reachable cell first (a Dijkstra-style search).</p>
             <ul>
-                <li><strong>Understand:</strong> Parse the input data</li>
-                <li><strong>Process:</strong> Apply the core logic</li>
-                <li><strong>Optimize:</strong> Use efficient data structures</li>
-                <li><strong>Return:</strong> Output the computed result</li>
+                <li><strong>Start:</strong> Push the top-left cell</li>
+                <li><strong>Expand:</strong> Pop the cell with the lowest water level needed</li>
+                <li><strong>Neighbours:</strong> Their cost is the larger of the current level and their own height</li>
+                <li><strong>Finish:</strong> The level at which the bottom-right cell is popped</li>
             </ul>
         </div>
-
 
         <section class="visualization-section">
             <h3>🎬 Step-by-Step Visualization</h3>

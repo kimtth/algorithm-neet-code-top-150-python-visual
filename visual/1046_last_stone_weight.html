@@ -15,7 +15,7 @@
             <p><strong>Pattern:</strong> Max Heap - Always pick two largest stones efficiently</p>
             <div class="problem-meta">
                 <span class="meta-tag">📝 Algorithm</span>
-                <span class="meta-tag">⏱️ O(n)</span>
+                <span class="meta-tag">⏱️ O(n log n)</span>
             </div>
             <div class="file-ref">
                 📄 Python: <code>python/1046_last_stone_weight/1046_last_stone_weight.py</code>
@@ -23,17 +23,17 @@
 
         </div>
 
+
+
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>This algorithm solves the problem <strong>step by step</strong>:</p>
+            <p>Repeatedly smash the two heaviest stones. A <strong>max-heap</strong> gives them instantly.</p>
             <ul>
-                <li><strong>Understand:</strong> Parse the input data</li>
-                <li><strong>Process:</strong> Apply the core logic</li>
-                <li><strong>Optimize:</strong> Use efficient data structures</li>
-                <li><strong>Return:</strong> Output the computed result</li>
+                <li><strong>Pick:</strong> Pop the two largest stones y &ge; x</li>
+                <li><strong>Smash:</strong> If they differ, push back <code>y - x</code></li>
+                <li><strong>Finish:</strong> Return the last stone, or 0 if none is left</li>
             </ul>
         </div>
-
 
         <div class="visualization-section">
             <h3>🎬 Step-by-Step Visualization</h3>

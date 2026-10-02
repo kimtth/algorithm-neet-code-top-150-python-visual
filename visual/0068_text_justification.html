@@ -23,17 +23,17 @@
 
         </div>
 
+
+
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>This algorithm solves the problem <strong>step by step</strong>:</p>
+            <p>Pack as many words as fit on each line, then spread the spaces so the line is exactly the maximum width.</p>
             <ul>
-                <li><strong>Understand:</strong> Parse the input data</li>
-                <li><strong>Process:</strong> Apply the core logic</li>
-                <li><strong>Optimize:</strong> Use efficient data structures</li>
-                <li><strong>Return:</strong> Output the computed result</li>
+                <li><strong>Greedy fit:</strong> Add words while one space between words still fits</li>
+                <li><strong>Distribute:</strong> Divide the spare spaces evenly between the gaps; the leftmost gaps get the extra ones</li>
+                <li><strong>Special lines:</strong> The last line and single-word lines are left-aligned and padded on the right</li>
             </ul>
         </div>
-
 
         <div class="visualization-section">
             <h3>🎬 Step-by-Step Visualization</h3>

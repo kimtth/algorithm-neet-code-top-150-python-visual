@@ -30,17 +30,17 @@ Output: 6 (subarray [2, 3])
             </pre>
         </div>
 
+
+
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>This algorithm solves the problem <strong>step by step</strong>:</p>
+            <p>Track both the biggest and the smallest product ending at each position, because a negative number can turn the smallest into the biggest.</p>
             <ul>
-                <li><strong>Understand:</strong> Parse the input data</li>
-                <li><strong>Process:</strong> Apply the core logic</li>
-                <li><strong>Optimize:</strong> Use efficient data structures</li>
-                <li><strong>Return:</strong> Output the computed result</li>
+                <li><strong>Candidates:</strong> For each number: the number itself, <code>max * num</code> and <code>min * num</code></li>
+                <li><strong>Update:</strong> New max is the largest candidate, new min the smallest</li>
+                <li><strong>Answer:</strong> The largest max seen so far</li>
             </ul>
         </div>
-
 
         <section class="visualization-section">
             <h3>🎬 Step-by-Step Visualization</h3>

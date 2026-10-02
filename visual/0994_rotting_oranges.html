@@ -15,7 +15,7 @@
             <p><strong>Pattern:</strong> Multi-source BFS - Start from all rotten oranges simultaneously</p>
             <div class="problem-meta">
                 <span class="meta-tag">📝 Algorithm</span>
-                <span class="meta-tag">⏱️ O(n)</span>
+                <span class="meta-tag">⏱️ O(m × n)</span>
             </div>
             <div class="file-ref">
                 📄 Python: <code>python/0994_rotting_oranges/0994_rotting_oranges.py</code>
@@ -23,17 +23,17 @@
 
         </div>
 
+
+
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>This algorithm solves the problem <strong>step by step</strong>:</p>
+            <p>Rot spreads one minute at a time to the four neighbours, which is a <strong>multi-source BFS</strong>.</p>
             <ul>
-                <li><strong>Understand:</strong> Parse the input data</li>
-                <li><strong>Process:</strong> Apply the core logic</li>
-                <li><strong>Optimize:</strong> Use efficient data structures</li>
-                <li><strong>Return:</strong> Output the computed result</li>
+                <li><strong>Start:</strong> Queue every rotten orange and count the fresh ones</li>
+                <li><strong>Minute:</strong> Rot all fresh neighbours of the current queue and count one minute</li>
+                <li><strong>Answer:</strong> The minutes when no fresh orange remains, or -1 if some are unreachable</li>
             </ul>
         </div>
-
 
         <div class="visualization-section">
             <h3>🎬 Step-by-Step Visualization</h3>

@@ -19,7 +19,7 @@
             <div class="problem-meta">
                 <span class="meta-tag">🔤 String</span>
                 <span class="meta-tag">🔢 Math</span>
-                <span class="meta-tag">⏱️ O(n)</span>
+                <span class="meta-tag">⏱️ O(m × n)</span>
             </div>
             <div class="file-ref">
                 📄 Python: <code>python/0043_multiply_strings/0043_multiply_strings.py</code>
@@ -27,17 +27,17 @@
 
         </div>
 
+
+
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>This algorithm solves the problem <strong>step by step</strong>:</p>
+            <p>Multiply the way you learned in school, digit by digit, adding each product into the right column of a result array.</p>
             <ul>
-                <li><strong>Understand:</strong> Parse the input data</li>
-                <li><strong>Process:</strong> Apply the core logic</li>
-                <li><strong>Optimize:</strong> Use efficient data structures</li>
-                <li><strong>Return:</strong> Output the computed result</li>
+                <li><strong>Positions:</strong> Digits <code>i</code> and <code>j</code> contribute to columns <code>i + j</code> and <code>i + j + 1</code></li>
+                <li><strong>Multiply and add:</strong> Add the product to the low column, keep its last digit, and carry the rest to the high column</li>
+                <li><strong>Trim:</strong> Drop leading zeros and return the string</li>
             </ul>
         </div>
-
 
         <section class="visualization-section">
             <h3>🎬 Step-by-Step Visualization</h3>

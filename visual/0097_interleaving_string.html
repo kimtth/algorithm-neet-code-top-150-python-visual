@@ -18,7 +18,7 @@
             <div class="problem-meta">
                 <span class="meta-tag">🔤 String</span>
                 <span class="meta-tag">🧮 DP</span>
-                <span class="meta-tag">⏱️ O(n)</span>
+                <span class="meta-tag">⏱️ O(m × n)</span>
             </div>
             <div class="file-ref">
                 📄 Python: <code>python/0097_interleaving_string/0097_interleaving_string.py</code>
@@ -26,17 +26,18 @@
 
         </div>
 
+
+
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>This algorithm solves the problem <strong>step by step</strong>:</p>
+            <p>Fill a grid where cell <code>(i, j)</code> says whether the first <code>i</code> letters of s1 and the first <code>j</code> letters of s2 can weave into the first <code>i + j</code> letters of s3.</p>
             <ul>
-                <li><strong>Understand:</strong> Parse the input data</li>
-                <li><strong>Process:</strong> Apply the core logic</li>
-                <li><strong>Optimize:</strong> Use efficient data structures</li>
-                <li><strong>Return:</strong> Output the computed result</li>
+                <li><strong>Length check:</strong> If the lengths do not add up, the answer is False</li>
+                <li><strong>Borders:</strong> Using only s1 or only s2 must match s3 so far</li>
+                <li><strong>Each cell:</strong> True if the previous cell above matches via s1, or the previous cell to the left matches via s2</li>
+                <li><strong>Answer:</strong> The bottom-right cell</li>
             </ul>
         </div>
-
 
         <section class="visualization-section">
             <h3>🎬 Step-by-Step Visualization</h3>

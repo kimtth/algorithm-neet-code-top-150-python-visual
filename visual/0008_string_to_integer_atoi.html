@@ -22,17 +22,18 @@
 
         </div>
 
+
+
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>This algorithm solves the problem <strong>step by step</strong>:</p>
+            <p>Parse the text the way a careful reader would: skip blanks, read an optional sign, then take digits until something else appears.</p>
             <ul>
-                <li><strong>Understand:</strong> Parse the input data</li>
-                <li><strong>Process:</strong> Apply the core logic</li>
-                <li><strong>Optimize:</strong> Use efficient data structures</li>
-                <li><strong>Return:</strong> Output the computed result</li>
+                <li><strong>Skip spaces:</strong> Move past leading whitespace</li>
+                <li><strong>Read the sign:</strong> A single <code>+</code> or <code>-</code> sets the sign</li>
+                <li><strong>Accumulate digits:</strong> Build <code>result * 10 + digit</code> and stop at the first non-digit</li>
+                <li><strong>Clamp:</strong> If the value would pass the 32-bit range, return the limit instead</li>
             </ul>
         </div>
-
 
         <div class="visualization-section">
             <h3>🎬 Step-by-Step Visualization</h3>

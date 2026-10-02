@@ -17,9 +17,9 @@
                 without repetition.
             </p>
             <div class="problem-meta">
-                <span class="meta-tag">📚 Stack</span>
+                <span class="meta-tag">🗂️ Hash Set</span>
                 <span class="meta-tag">🔲 Matrix</span>
-                <span class="meta-tag">⏱️ O(n)</span>
+                <span class="meta-tag">⏱️ O(n²)</span>
             </div>
             <div class="file-ref">
                 📄 Python: <code>python/0036_valid_sudoku/0036_valid_sudoku.py</code>
@@ -29,12 +29,12 @@
 
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>A stack works like a <strong>pile of plates</strong> - last in, first out (LIFO):</p>
+            <p>Checking a Sudoku board with <strong>hash sets</strong>:</p>
             <ul>
-                <li><strong>Push:</strong> Add item to the top</li>
-                <li><strong>Pop:</strong> Remove and return the top item</li>
-                <li><strong>Peek:</strong> Look at top without removing</li>
-                <li><strong>Match pairs:</strong> Great for matching brackets, parentheses</li>
+                <li><strong>Rows:</strong> One set of seen digits per row</li>
+                <li><strong>Columns:</strong> One set of seen digits per column</li>
+                <li><strong>Boxes:</strong> One set per 3x3 box</li>
+                <li><strong>Invalid:</strong> A digit already in any of its three sets</li>
             </ul>
         </div>
 

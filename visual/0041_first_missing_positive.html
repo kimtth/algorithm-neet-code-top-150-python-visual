@@ -23,17 +23,18 @@
 
         </div>
 
+
+
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>This algorithm solves the problem <strong>step by step</strong>:</p>
+            <p>Use the array itself as a checklist: the value <code>v</code> is recorded by marking position <code>v - 1</code> negative.</p>
             <ul>
-                <li><strong>Understand:</strong> Parse the input data</li>
-                <li><strong>Process:</strong> Apply the core logic</li>
-                <li><strong>Optimize:</strong> Use efficient data structures</li>
-                <li><strong>Return:</strong> Output the computed result</li>
+                <li><strong>Check for 1:</strong> If 1 is absent, the answer is 1</li>
+                <li><strong>Clean up:</strong> Replace values that are not in <code>1..n</code> with 1</li>
+                <li><strong>Mark:</strong> For each value <code>v</code>, make <code>nums[v - 1]</code> negative</li>
+                <li><strong>Scan:</strong> The first position that is still positive gives the answer, otherwise <code>n + 1</code></li>
             </ul>
         </div>
-
 
         <div class="visualization-section">
             <h3>🎬 Step-by-Step Visualization</h3>

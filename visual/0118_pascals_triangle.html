@@ -22,7 +22,7 @@
             </p>
             <div class="problem-meta">
                 <span class="meta-tag">📝 Algorithm</span>
-                <span class="meta-tag">⏱️ O(n)</span>
+                <span class="meta-tag">⏱️ O(n²)</span>
             </div>
             <div class="file-ref">
                 📄 Python: <code>python/0118_pascal's_triangle/0118_pascal's_triangle.py</code>
@@ -30,17 +30,17 @@
 
         </div>
 
+
+
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>This algorithm solves the problem <strong>step by step</strong>:</p>
+            <p>Each row starts and ends with 1, and every inner number is the sum of the two numbers above it.</p>
             <ul>
-                <li><strong>Understand:</strong> Parse the input data</li>
-                <li><strong>Process:</strong> Apply the core logic</li>
-                <li><strong>Optimize:</strong> Use efficient data structures</li>
-                <li><strong>Return:</strong> Output the computed result</li>
+                <li><strong>First row:</strong> Start with <code>[1]</code></li>
+                <li><strong>New row:</strong> Begin with 1, add <code>prev[j - 1] + prev[j]</code> for each inner spot, end with 1</li>
+                <li><strong>Repeat:</strong> Continue until there are <code>numRows</code> rows</li>
             </ul>
         </div>
-
 
         <section class="visualization-section">
             <h3>🎬 Step-by-Step Visualization</h3>

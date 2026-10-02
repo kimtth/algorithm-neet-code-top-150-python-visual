@@ -14,8 +14,8 @@
             <p><strong>Problem:</strong> Given two integers a and b, return the sum of the two integers without using the operators + and -.</p>
             <p><strong>Pattern:</strong> Bit Manipulation - XOR for sum without carry, AND + shift for carry</p>
             <div class="problem-meta">
-                <span class="meta-tag">📊 Array</span>
-                <span class="meta-tag">⏱️ O(n)</span>
+                <span class="meta-tag">🔢 Bit</span>
+                <span class="meta-tag">⏱️ O(1)</span>
             </div>
             <div class="file-ref">
                 📄 Python: <code>python/0371_sum_of_two_integers/0371_sum_of_two_integers.py</code>
@@ -23,17 +23,18 @@
 
         </div>
 
+
+
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>This algorithm solves the problem <strong>step by step</strong>:</p>
+            <p>Add without <code>+</code>: XOR gives the sum without carries and AND shifted left gives the carries.</p>
             <ul>
-                <li><strong>Understand:</strong> Parse the input data</li>
-                <li><strong>Process:</strong> Apply the core logic</li>
-                <li><strong>Optimize:</strong> Use efficient data structures</li>
-                <li><strong>Return:</strong> Output the computed result</li>
+                <li><strong>Sum bits:</strong> <code>a ^ b</code> adds without carry</li>
+                <li><strong>Carry bits:</strong> <code>(a &amp; b) &lt;&lt; 1</code> is the carry</li>
+                <li><strong>Repeat:</strong> Continue until there is no carry</li>
+                <li><strong>Mask:</strong> A 32-bit mask keeps Python's integers in range, and the sign is restored at the end</li>
             </ul>
         </div>
-
 
         <div class="visualization-section">
             <h3>🎬 Step-by-Step Visualization</h3>

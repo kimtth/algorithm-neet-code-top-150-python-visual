@@ -25,12 +25,12 @@
 
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>Backtracking <strong>explores all possibilities</strong> like solving a maze:</p>
+            <p>Finding the next permutation <strong>in place</strong>:</p>
             <ul>
-                <li><strong>Choose:</strong> Make a decision</li>
-                <li><strong>Explore:</strong> Recursively continue</li>
-                <li><strong>Validate:</strong> Check if path is valid</li>
-                <li><strong>Backtrack:</strong> Undo choice if stuck, try another</li>
+                <li><strong>Pivot:</strong> Scan from the right for the first digit smaller than its right neighbor</li>
+                <li><strong>Swap:</strong> Swap it with the smallest larger digit to its right</li>
+                <li><strong>Reverse:</strong> Reverse the suffix so it becomes the smallest order</li>
+                <li><strong>No pivot:</strong> Already the largest order, so reverse the whole array</li>
             </ul>
         </div>
 

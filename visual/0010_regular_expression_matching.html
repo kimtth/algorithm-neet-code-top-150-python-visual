@@ -49,17 +49,18 @@
 
         </section>
 
+
+
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>This algorithm solves the problem <strong>step by step</strong>:</p>
+            <p>Match the pattern against the text from the left, remembering the answer for each (text position, pattern position) pair so nothing is solved twice.</p>
             <ul>
-                <li><strong>Understand:</strong> Parse the input data</li>
-                <li><strong>Process:</strong> Apply the core logic</li>
-                <li><strong>Optimize:</strong> Use efficient data structures</li>
-                <li><strong>Return:</strong> Output the computed result</li>
+                <li><strong>Plain match:</strong> A letter or <code>.</code> must match the current character, then both move on</li>
+                <li><strong>Star:</strong> <code>x*</code> either matches zero characters (skip the pair) or one more character (stay on the pattern)</li>
+                <li><strong>Memory:</strong> A cache stores each (i, j) result</li>
+                <li><strong>Done:</strong> Success when the pattern is used up exactly at the end of the text</li>
             </ul>
         </div>
-
 
         <section class="visualization-section">
             <h3>🎬 Step-by-Step Visualization</h3>

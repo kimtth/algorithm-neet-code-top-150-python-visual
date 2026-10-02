@@ -29,12 +29,12 @@
 
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>Tree traversal is like <strong>exploring a family tree</strong>:</p>
+            <p>Walking uphill on a grid with <strong>DFS and memoization</strong>:</p>
             <ul>
-                <li><strong>Root:</strong> Start at the top node</li>
-                <li><strong>Recurse:</strong> Visit left and right children</li>
-                <li><strong>Base case:</strong> Stop at null/leaf nodes</li>
-                <li><strong>Combine:</strong> Build answer from subtree results</li>
+                <li><strong>Start anywhere:</strong> Try every cell as a starting point</li>
+                <li><strong>Move to larger neighbors:</strong> Only step up, down, left, right onto a strictly larger value</li>
+                <li><strong>Memoize:</strong> Store the longest path from each cell so it is computed once</li>
+                <li><strong>Answer:</strong> The maximum stored length</li>
             </ul>
         </div>
 

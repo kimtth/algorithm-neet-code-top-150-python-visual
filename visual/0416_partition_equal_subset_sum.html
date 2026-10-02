@@ -19,7 +19,7 @@
                 <span class="meta-tag">📊 Array</span>
                 <span class="meta-tag">🧮 DP</span>
                 <span class="meta-tag">🔄 Backtracking</span>
-                <span class="meta-tag">⏱️ O(n)</span>
+                <span class="meta-tag">⏱️ O(n × sum)</span>
             </div>
             <div class="file-ref">
                 📄 Python: <code>python/0416_partition_equal_subset_sum/0416_partition_equal_subset_sum.py</code>
@@ -35,12 +35,12 @@ Output: true ([1,5,5] and [11])
 
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>Backtracking <strong>explores all possibilities</strong> like solving a maze:</p>
+            <p>Splitting into two equal halves with <strong>subset-sum DP</strong>:</p>
             <ul>
-                <li><strong>Choose:</strong> Make a decision</li>
-                <li><strong>Explore:</strong> Recursively continue</li>
-                <li><strong>Validate:</strong> Check if path is valid</li>
-                <li><strong>Backtrack:</strong> Undo choice if stuck, try another</li>
+                <li><strong>Target:</strong> The total must be even; aim for half of it</li>
+                <li><strong>DP array:</strong> dp[j] says whether some subset sums to j</li>
+                <li><strong>Update:</strong> For each number, go from target down to the number so it is used once</li>
+                <li><strong>Answer:</strong> dp[target]</li>
             </ul>
         </div>
 

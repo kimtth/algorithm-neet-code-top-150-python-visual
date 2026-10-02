@@ -24,16 +24,6 @@
 
         </div>
 
-        <div class="explanation-panel">
-            <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>This algorithm solves the problem <strong>step by step</strong>:</p>
-            <ul>
-                <li><strong>Understand:</strong> Parse the input data</li>
-                <li><strong>Process:</strong> Apply the core logic</li>
-                <li><strong>Optimize:</strong> Use efficient data structures</li>
-                <li><strong>Return:</strong> Output the computed result</li>
-            </ul>
-        </div>
 
 
         <div class="controls">
@@ -61,6 +51,16 @@
                 <span class="var-label">Running Product:</span>
                 <span id="productDisplay">1</span>
             </div>
+        </div>
+
+        <div class="explanation-panel">
+            <h4>🧠 How It Works (Layman's Terms)</h4>
+            <p>For each position, multiply everything on its left by everything on its right, without using division.</p>
+            <ul>
+                <li><strong>Left pass:</strong> Store the running product of the elements before each index</li>
+                <li><strong>Right pass:</strong> Multiply in the running product of the elements after each index</li>
+                <li><strong>Result:</strong> Each slot holds the product of all other numbers</li>
+            </ul>
         </div>
 
         <div class="visualization-section">

@@ -17,7 +17,7 @@
             </p>
             <div class="problem-meta">
                 <span class="meta-tag">⛰️ Heap</span>
-                <span class="meta-tag">⏱️ O(n)</span>
+                <span class="meta-tag">⏱️ O(n log k)</span>
             </div>
             <div class="file-ref">
                 📄 Python: <code>python/0973_k_closest_points_to_origin/0973_k_closest_points_to_origin.py</code>
@@ -25,17 +25,18 @@
 
         </div>
 
+
+
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>This algorithm solves the problem <strong>step by step</strong>:</p>
+            <p>Keep a <strong>max-heap</strong> of the k closest points so far; the farthest of them sits on top and is dropped when something closer arrives.</p>
             <ul>
-                <li><strong>Understand:</strong> Parse the input data</li>
-                <li><strong>Process:</strong> Apply the core logic</li>
-                <li><strong>Optimize:</strong> Use efficient data structures</li>
-                <li><strong>Return:</strong> Output the computed result</li>
+                <li><strong>Distance:</strong> Use squared distance, no square root needed</li>
+                <li><strong>Push:</strong> Add each point to the heap</li>
+                <li><strong>Trim:</strong> If the heap has more than k points, remove the farthest</li>
+                <li><strong>Result:</strong> The points left in the heap</li>
             </ul>
         </div>
-
 
         <section class="visualization-section">
             <h3>🎬 Step-by-Step Visualization</h3>
@@ -208,7 +209,7 @@ if __name__ == '__main__':
 
         let k = 3;
         let currentIndex = 0;
-        let maxHeap = []; // Stores {negDist, point, dist}
+        let maxHeap = []; // Stores {point, dist}; root = farthest point
         let isRunning = false;
         let result = [];
 
@@ -225,7 +226,7 @@ if __name__ == '__main__':
             let i = heap.length - 1;
             while (i > 0) {
                 const parent = Math.floor((i - 1) / 2);
-                if (heap[i].negDist > heap[parent].negDist) {
+                if (heap[i].dist > heap[parent].dist) {
                     [heap[i], heap[parent]] = [heap[parent], heap[i]];
                     i = parent;
                 } else break;
@@ -242,10 +243,10 @@ if __name__ == '__main__':
                 const left = 2 * i + 1;
                 const right = 2 * i + 2;
                 let largest = i;
-                if (left < heap.length && heap[left].negDist > heap[largest].negDist) {
+                if (left < heap.length && heap[left].dist > heap[largest].dist) {
                     largest = left;
                 }
-                if (right < heap.length && heap[right].negDist > heap[largest].negDist) {
+                if (right < heap.length && heap[right].dist > heap[largest].dist) {
                     largest = right;
                 }
                 if (largest !== i) {
@@ -496,7 +497,7 @@ if __name__ == '__main__':
             const point = points[currentIndex];
             const d = dist(point);
             
-            heapPush(maxHeap, { negDist: -d, point: point, dist: d });
+            heapPush(maxHeap, { point: point, dist: d });
             
             if (maxHeap.length > k) {
                 const removed = heapPop(maxHeap);

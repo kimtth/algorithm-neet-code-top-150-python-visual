@@ -16,7 +16,7 @@
             <div class="problem-meta">
                 <span class="meta-tag">🔤 String</span>
                 <span class="meta-tag">🌊 BFS</span>
-                <span class="meta-tag">⏱️ O(n)</span>
+                <span class="meta-tag">⏱️ O(N × L²)</span>
             </div>
             <div class="file-ref">
                 📄 Python: <code>python/0127_word_ladder/0127_word_ladder.py</code>
@@ -24,17 +24,18 @@
 
         </div>
 
+
+
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>This algorithm solves the problem <strong>step by step</strong>:</p>
+            <p>Search for the shortest chain of one-letter changes with <strong>breadth-first search</strong>. Words that differ in one place share a wildcard pattern such as <code>h*t</code>.</p>
             <ul>
-                <li><strong>Understand:</strong> Parse the input data</li>
-                <li><strong>Process:</strong> Apply the core logic</li>
-                <li><strong>Optimize:</strong> Use efficient data structures</li>
-                <li><strong>Return:</strong> Output the computed result</li>
+                <li><strong>Patterns:</strong> Group the words by every wildcard pattern</li>
+                <li><strong>Layers:</strong> From the start word, visit all words reachable by one change before moving deeper</li>
+                <li><strong>Visited:</strong> Never revisit a word</li>
+                <li><strong>Answer:</strong> The layer count when the end word appears, or 0 if it never does</li>
             </ul>
         </div>
-
 
         <div class="visualization-section">
             <h3>🎬 Step-by-Step Visualization</h3>

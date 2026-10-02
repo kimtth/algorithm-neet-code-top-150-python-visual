@@ -15,7 +15,7 @@
             <p><strong>Pattern:</strong> Union-Find - Count number of unique parents after all unions</p>
             <div class="problem-meta">
                 <span class="meta-tag">🔗 Graph</span>
-                <span class="meta-tag">⏱️ O(n)</span>
+                <span class="meta-tag">⏱️ O(V + E)</span>
             </div>
             <div class="file-ref">
                 📄 Python: <code>python/0323_number_of_connected_components_in_an_undirected_graph/0323_number_of_connected_components_in_an_undirected_graph.py</code>
@@ -23,17 +23,17 @@
 
         </div>
 
+
+
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>This algorithm solves the problem <strong>step by step</strong>:</p>
+            <p>Count separate islands in a graph: start a DFS from every unvisited node and each start is one new component.</p>
             <ul>
-                <li><strong>Understand:</strong> Parse the input data</li>
-                <li><strong>Process:</strong> Apply the core logic</li>
-                <li><strong>Optimize:</strong> Use efficient data structures</li>
-                <li><strong>Return:</strong> Output the computed result</li>
+                <li><strong>Graph:</strong> Build an adjacency list from the edges</li>
+                <li><strong>Explore:</strong> From an unvisited node, mark everything reachable</li>
+                <li><strong>Count:</strong> Add one for each new start</li>
             </ul>
         </div>
-
 
         <div class="visualization-section">
             <h3>🎬 Step-by-Step Visualization</h3>

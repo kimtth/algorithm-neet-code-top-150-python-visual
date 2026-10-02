@@ -24,12 +24,12 @@
 
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>Dynamic Programming <strong>breaks big problems into smaller ones</strong>:</p>
+            <p>Finding a common prefix by <strong>shrinking a candidate</strong>:</p>
             <ul>
-                <li><strong>Subproblems:</strong> Solve smaller versions first</li>
-                <li><strong>Memoization:</strong> Cache results to avoid recalculation</li>
-                <li><strong>Build up:</strong> Combine small solutions for final answer</li>
-                <li><strong>State:</strong> Define what each position represents</li>
+                <li><strong>Start:</strong> Take the first string as the candidate prefix</li>
+                <li><strong>Compare:</strong> Check each following string against the candidate</li>
+                <li><strong>Shrink:</strong> Drop the last character until the string starts with it</li>
+                <li><strong>Answer:</strong> Whatever survives all strings</li>
             </ul>
         </div>
 

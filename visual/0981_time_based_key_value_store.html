@@ -18,7 +18,7 @@
             </p>
             <div class="problem-meta">
                 <span class="meta-tag">📝 Algorithm</span>
-                <span class="meta-tag">⏱️ O(n)</span>
+                <span class="meta-tag">⏱️ O(log n) per get</span>
             </div>
             <div class="file-ref">
                 📄 Python: <code>python/0981_time_based_key_value_store/0981_time_based_key_value_store.py</code>
@@ -26,17 +26,17 @@
 
         </div>
 
+
+
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>This algorithm solves the problem <strong>step by step</strong>:</p>
+            <p>Each key keeps its values in time order, so <strong>binary search</strong> can find the latest value at or before a timestamp.</p>
             <ul>
-                <li><strong>Understand:</strong> Parse the input data</li>
-                <li><strong>Process:</strong> Apply the core logic</li>
-                <li><strong>Optimize:</strong> Use efficient data structures</li>
-                <li><strong>Return:</strong> Output the computed result</li>
+                <li><strong>Set:</strong> Append <code>(timestamp, value)</code> to the key's list</li>
+                <li><strong>Get:</strong> Binary search for the last timestamp that is not larger than the query</li>
+                <li><strong>Missing:</strong> Return an empty string if there is none</li>
             </ul>
         </div>
-
 
         <section class="visualization-section">
             <h3>🎬 Step-by-Step Visualization</h3>

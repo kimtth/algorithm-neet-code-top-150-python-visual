@@ -47,7 +47,7 @@ This repository contains **193 Python** 🐍 and **168 Java** ☕ solutions to L
 | 347 | [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) | ✅ | ✅ | ✅ | [Visual](visual/0347_top_k_frequent_elements.html) |
 | 380 | [Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1/) | ✅ | ✅ | ❌ | [Visual](visual/0380_insert_delete_getrandom_o1.html) |
 | 412 | [Fizz Buzz](https://leetcode.com/problems/fizz-buzz/) | ✅ | ✅ | ❌ | [Visual](visual/0412_fizz_buzz.html) |
-| 953 | [Verifying an Alien Dictionary](https://leetcode.com/problems/verifying-an-alien-dictionary/) | ✅ | ✅ | ✅ | [Visual](visual/0953_verifying_an_alien_dictionary.html) |
+| 953 | [Verifying an Alien Dictionary](https://leetcode.com/problems/verifying-an-alien-dictionary/) | ✅ | ✅ | ❌ | [Visual](visual/0953_verifying_an_alien_dictionary.html) |
 | 1086 | [High Five](https://leetcode.com/problems/high-five/) | ✅ | ✅ | ❌ | [Visual](visual/1086_high_five.html) |
 
 ### Two Pointers 👉👉
@@ -85,7 +85,7 @@ This repository contains **193 Python** 🐍 and **168 Java** ☕ solutions to L
 | 716 | [Max Stack](https://leetcode.com/problems/max-stack/) | ✅ | ✅ | ❌ | [Visual](visual/0716_max_stack.html) |
 | 739 | [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/) | ✅ | ✅ | ✅ | [Visual](visual/0739_daily_temperatures.html) |
 | 853 | [Car Fleet](https://leetcode.com/problems/car-fleet/) | ✅ | ❌ | ✅ | [Visual](visual/0853_car_fleet.html) |
-| 1249 | [Minimum Remove to Make Valid Parentheses](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/) | ✅ | ✅ | ✅ | [Visual](visual/1249_min_remove_parentheses.html) |
+| 1249 | [Minimum Remove to Make Valid Parentheses](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/) | ✅ | ✅ | ❌ | [Visual](visual/1249_min_remove_parentheses.html) |
 
 ### Binary Search 🔍
 
@@ -93,7 +93,7 @@ This repository contains **193 Python** 🐍 and **168 Java** ☕ solutions to L
 |---|---------|:--:|:--:|:--:|:--:|
 | 4 | [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) | ✅ | ✅ | ✅ | [Visual](visual/0004_median_two_sorted_arrays.html) |
 | 33 | [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) | ✅ | ✅ | ✅ | [Visual](visual/0033_search_in_rotated_sorted_array.html) |
-| 34 | [Find First and Last Position of Element](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/) | ✅ | ✅ | ✅ | [Visual](visual/0034_find_first_and_last_position.html) |
+| 34 | [Find First and Last Position of Element](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/) | ✅ | ✅ | ❌ | [Visual](visual/0034_find_first_and_last_position.html) |
 | 74 | [Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/) | ✅ | ✅ | ✅ | [Visual](visual/0074_search_2d_matrix.html) |
 | 153 | [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/) | ✅ | ✅ | ✅ | [Visual](visual/0153_min_rotated_sorted.html) |
 | 704 | [Binary Search](https://leetcode.com/problems/binary-search/) | ✅ | ✅ | ✅ | [Visual](visual/0704_binary_search.html) |
@@ -114,7 +114,7 @@ This repository contains **193 Python** 🐍 and **168 Java** ☕ solutions to L
 | 141 | [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) | ✅ | ✅ | ✅ | [Visual](visual/0141_linked_list_cycle.html) |
 | 143 | [Reorder List](https://leetcode.com/problems/reorder-list/) | ✅ | ✅ | ✅ | [Visual](visual/0143_reorder_list.html) |
 | 146 | [LRU Cache](https://leetcode.com/problems/lru-cache/) | ✅ | ✅ | ✅ | [Visual](visual/0146_lru_cache.html) |
-| 148 | [Sort List](https://leetcode.com/problems/sort-list/) | ✅ | ✅ | ✅ | [Visual](visual/0148_sort_list.html) |
+| 148 | [Sort List](https://leetcode.com/problems/sort-list/) | ✅ | ✅ | ❌ | [Visual](visual/0148_sort_list.html) |
 | 206 | [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) | ✅ | ✅ | ✅ | [Visual](visual/0206_reverse_linked_list.html) |
 | 234 | [Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/) | ✅ | ✅ | ❌ | [Visual](visual/0234_palindrome_linked_list.html) |
 | 287 | [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) | ✅ | ✅ | ✅ | [Visual](visual/0287_find_duplicate_number.html) |
@@ -178,7 +178,7 @@ This repository contains **193 Python** 🐍 and **168 Java** ☕ solutions to L
 | 261 | [Graph Valid Tree](https://leetcode.ca/all/261.html) | ✅ | ✅ | ✅ | [Visual](visual/0261_graph_valid_tree.html) |
 | 269 | [Alien Dictionary](https://leetcode.ca/all/269.html) | ✅ | ✅ | ✅ | [Visual](visual/0269_alien_dictionary.html) |
 | 277 | [Find the Celebrity](https://leetcode.ca/all/277.html) | ✅ | ✅ | ❌ | [Visual](visual/0277_find_the_celebrity.html) |
-| 286 | [Walls and Gates](https://leetcode.ca/all/286.html) | ✅ | ✅ | ❌ | [Visual](visual/0286_walls_and_gates.html) |
+| 286 | [Walls and Gates](https://leetcode.ca/all/286.html) | ✅ | ✅ | ✅ | [Visual](visual/0286_walls_and_gates.html) |
 | 323 | [Number of Connected Components](https://leetcode.ca/all/323.html) | ✅ | ✅ | ✅ | [Visual](visual/0323_number_of_connected_components.html) |
 | 329 | [Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/) | ✅ | ✅ | ✅ | [Visual](visual/0329_longest_increasing_path_in_a_matrix.html) |
 | 332 | [Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary/) | ✅ | ✅ | ✅ | [Visual](visual/0332_reconstruct_itinerary.html) |
@@ -265,7 +265,7 @@ This repository contains **193 Python** 🐍 and **168 Java** ☕ solutions to L
 | 268 | [Missing Number](https://leetcode.com/problems/missing-number/) | ✅ | ✅ | ✅ | [Visual](visual/0268_missing_number.html) |
 | 338 | [Counting Bits](https://leetcode.com/problems/counting-bits/) | ✅ | ✅ | ✅ | [Visual](visual/0338_counting_bits.html) |
 | 371 | [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/) | ✅ | ✅ | ✅ | [Visual](visual/0371_sum_of_two_integers.html) |
-| 2013 | [Detect Squares](https://leetcode.com/problems/detect-squares/) | ✅ | ✅ | ❌ | [Visual](visual/2013_detect_squares.html) |
+| 2013 | [Detect Squares](https://leetcode.com/problems/detect-squares/) | ✅ | ✅ | ✅ | [Visual](visual/2013_detect_squares.html) |
 
 ### Intervals 📅
 
@@ -304,23 +304,23 @@ This repository contains **193 Python** 🐍 and **168 Java** ☕ solutions to L
 
 | Category | Python 🐍 | Java ☕ | Visuals 📊 |
 |----------|:---------:|:-------:|:----------:|
-| Array & Hashing | 18 | 16 | 18 |
+| Array & Hashing | 18 | 17 | 18 |
 | Two Pointers | 5 | 5 | 5 |
 | Sliding Window | 7 | 7 | 7 |
-| Stack | 10 | 9 | 10 |
+| Stack | 10 | 8 | 10 |
 | Binary Search | 8 | 8 | 8 |
 | Linked List | 15 | 14 | 15 |
-| Trees | 27 | 23 | 27 |
+| Trees | 27 | 20 | 27 |
 | Heap / Priority Queue | 8 | 8 | 8 |
-| Graphs | 21 | 21 | 21 |
-| Dynamic Programming | 27 | 27 | 27 |
-| Greedy | 6 | 6 | 6 |
-| Backtracking | 9 | 8 | 9 |
-| Math & Geometry | 14 | 14 | 14 |
+| Graphs | 22 | 21 | 22 |
+| Dynamic Programming | 26 | 21 | 26 |
+| Greedy | 6 | 5 | 6 |
+| Backtracking | 9 | 7 | 9 |
+| Math & Geometry | 14 | 13 | 14 |
 | Intervals | 7 | 7 | 7 |
-| String | 9 | 6 | 9 |
+| String | 9 | 5 | 9 |
 | Design | 2 | 2 | 2 |
-| **TOTAL** | **193** | **178** | **193** |
+| **TOTAL** | **193** | **168** | **193** |
 
 ---
 

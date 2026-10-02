@@ -22,17 +22,17 @@
 
         </div>
 
+
+
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>This algorithm solves the problem <strong>step by step</strong>:</p>
+            <p>Instead of converting to text, reverse only the <strong>second half</strong> of the digits and compare it with the first half.</p>
             <ul>
-                <li><strong>Understand:</strong> Parse the input data</li>
-                <li><strong>Process:</strong> Apply the core logic</li>
-                <li><strong>Optimize:</strong> Use efficient data structures</li>
-                <li><strong>Return:</strong> Output the computed result</li>
+                <li><strong>Reject early:</strong> Negative numbers and numbers ending in 0 (except 0) are not palindromes</li>
+                <li><strong>Peel digits:</strong> Move the last digit of <code>x</code> onto <code>reversed_half</code> until <code>reversed_half</code> catches up</li>
+                <li><strong>Compare:</strong> Equal halves (ignoring the middle digit for odd lengths) means a palindrome</li>
             </ul>
         </div>
-
 
         <div class="visualization-section">
             <h3>🎬 Step-by-Step Visualization</h3>

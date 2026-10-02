@@ -31,17 +31,18 @@
 
         </div>
 
+
+
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>This algorithm solves the problem <strong>step by step</strong>:</p>
+            <p>Like adding two long numbers on paper, one column at a time, starting from the ones digit. A <strong>carry</strong> is passed to the next column.</p>
             <ul>
-                <li><strong>Understand:</strong> Parse the input data</li>
-                <li><strong>Process:</strong> Apply the core logic</li>
-                <li><strong>Optimize:</strong> Use efficient data structures</li>
-                <li><strong>Return:</strong> Output the computed result</li>
+                <li><strong>Add a column:</strong> Sum the two digits (a missing digit counts as 0) plus the carry</li>
+                <li><strong>Write the digit:</strong> Append <code>total % 10</code> to the result list</li>
+                <li><strong>Carry over:</strong> Pass <code>total // 10</code> to the next column</li>
+                <li><strong>Finish:</strong> Stop when both lists and the carry are used up</li>
             </ul>
         </div>
-
 
         <div class="visualization-section">
             <h3>🎬 Step-by-Step Visualization</h3>

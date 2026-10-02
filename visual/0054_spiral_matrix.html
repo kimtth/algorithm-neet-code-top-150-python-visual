@@ -362,22 +362,22 @@ if __name__ == '__main__':
             switch (direction) {
                 case 0: // Right
                     for (let col = left; col <= right; col++) {
-                        if (!visited[top][col]) positions.push([top, col]);
+                        positions.push([top, col]);
                     }
                     break;
                 case 1: // Down
                     for (let row = top; row <= bottom; row++) {
-                        if (!visited[row][right]) positions.push([row, right]);
+                        positions.push([row, right]);
                     }
                     break;
                 case 2: // Left
                     for (let col = right; col >= left; col--) {
-                        if (!visited[bottom][col]) positions.push([bottom, col]);
+                        positions.push([bottom, col]);
                     }
                     break;
                 case 3: // Up
                     for (let row = bottom; row >= top; row--) {
-                        if (!visited[row][left]) positions.push([row, left]);
+                        positions.push([row, left]);
                     }
                     break;
             }

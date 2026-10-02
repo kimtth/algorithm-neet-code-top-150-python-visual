@@ -41,17 +41,18 @@
 
         </section>
 
+
+
         <div class="explanation-panel">
             <h4>🧠 How It Works (Layman's Terms)</h4>
-            <p>This algorithm solves the problem <strong>step by step</strong>:</p>
+            <p>Connect all points with the smallest total wire length using <strong>Prim's algorithm</strong> on Manhattan distances.</p>
             <ul>
-                <li><strong>Understand:</strong> Parse the input data</li>
-                <li><strong>Process:</strong> Apply the core logic</li>
-                <li><strong>Optimize:</strong> Use efficient data structures</li>
-                <li><strong>Return:</strong> Output the computed result</li>
+                <li><strong>Start:</strong> Begin at point 0 with cost 0</li>
+                <li><strong>Pick:</strong> Take the cheapest edge to a point not yet connected</li>
+                <li><strong>Grow:</strong> Add that point and push its distances to the unconnected points</li>
+                <li><strong>Done:</strong> Sum the edge costs once all points are connected</li>
             </ul>
         </div>
-
 
         <section class="visualization-section">
             <h3>🎬 Step-by-Step Visualization</h3>
